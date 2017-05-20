@@ -1,0 +1,61 @@
+\documentclass{scu-thesis}
+\usepackage{vmargin}
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\usepackage{graphicx}	% for including graphics
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage{amsmath}	% for advanced typesetting of mathematics
+% \usepackage{txfonts}	% for using the Times-Roman font
+% \usepackage{natbib}	% for better citation styles
+
+
+% These must be set first ... the rest of the thesis commands rely on them.
+
+\author{Luis Abraham Millan}
+\author{David Blake Tsuzaki}
+\author{Yang Li}
+\title{Portable Reading Assistant Headset for the Visually Impaired}
+\department{Department of Computer Engineering}
+\department{Department of Electrical Engineering}
+\degree{Bachelor of Science in Computer Science and Engineering}
+\degree{Bachelor of Science in Electrical Engineering}
+
+
+% Only bachelor's theses should have multiple authors and/or be from
+% multiple departments.  Signatures required:
+%
+% Bachelor's theses: advisor(s), department chair(s)
+% Master's theses: advisor, reader, department chair
+% Doctoral theses: doctoral committee (including advisor), department chair
+
+\begin{document}
+\frontmatter
+\signature{Thesis Advisor}
+\signature{Thesis Advisor}
+\signature{Department Chair}
+\signature{Department Chair}
+
+\maketitle
+\include{abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+\include{introduction}
+\include{requirements}
+\include{useCases}
+\include{activityDiagrams}
+%\include{conceptualModel}
+\include{technologiesUsed}
+\include{architectualDiagrams}
+\include{designRationale}
+\include{testPlan}
+\include{riskAnalysis}
+\include{developmentTimeline}
+
+\backmatter
+%\include{appendix}
+\end{document}

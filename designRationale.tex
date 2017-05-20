@@ -1,0 +1,64 @@
+\chapter{Design Rationale}
+
+	\section{Architecture}
+		\begin{itemize}
+			\item Hardware
+			\begin{itemize}
+				\item Wired video module to the phone
+				\begin{itemize}
+					\item Low-Latency, and therefore improving the system’s responsiveness when providing feedback to user
+				\end{itemize}
+				\item Choice of Haptics + Sonics Feedback
+				\begin{itemize}
+					\item Haptics allow us to better communicate spatial information regarding their gaze and important text or a user’s text of interest
+					\item Sonics are natural way of communicating textual information to a user
+				\end{itemize}
+			\end{itemize}
+
+
+			\item Software
+			\begin{itemize}
+				\item Textual Classification Framework before Optical Character Recognition Framework
+				\begin{itemize}
+					\item Current Tesseract OCR Engine does poorly with text that is skewed, and therefore the Textual Classification will allow us to preprocess the video frame to first know whether there is text in the frame to be interested about and secondly to deskew the image as best as possible to improve performance of the OCR engine.
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+\pagebreak
+	\section{Technologies}
+		\begin{itemize}
+			\item Tesseract Optical Character Recognition Engine
+			\begin{itemize}
+				\item Currently, the most accurate open source solution to optical character recognition.
+				\item Highly documented with academic papers written about it’s architecture
+				\item Constantly being developed by a community of developers, so if we run into problems we have a community to ask questions to
+				\item Has both a C (python wrapper) and a C++ API
+				\item Supported by Google
+			\end{itemize}
+
+			\item OpenCV
+			\begin{itemize}
+				\item De Facto standard software libraries for computer vision
+				\item Lots of developer support
+				\item Open source
+				\item All of its data structures are compatible with Tesseracts API
+			\end{itemize}
+
+			\item TensorFlow
+			\begin{itemize}
+				\item Supported by Google
+				\item Scalable to distributed systems
+				\item Machine Learning Lead has most experience with this technology
+				\item Many examples of state of the art models implemented in TensorFlow making it easy to build upon, expand and even customize models to an application’s requirements
+			\end{itemize}
+
+			\item Numpy
+			\begin{itemize}
+				\item Computationally efficient way of storing and computing operations involving vectors and matrices. Useful in our application because video frames and words are commonly represented and manipulated via vectors and matrix operations
+			\end{itemize}
+\pagebreak
+			\item scikit-learn
+			\begin{itemize}
+				\item Offers state of the art plug and play machine learning models that we can use for our initial designs and provide a baseline for the performance of our system 
+			\end{itemize}
+		\end{itemize}

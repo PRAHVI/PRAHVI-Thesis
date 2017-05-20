@@ -1,0 +1,25 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}
+\contentsline {section}{\numberline {1.2}Current Solutions}{1}
+\contentsline {section}{\numberline {1.3}New Solution}{2}
+\contentsline {chapter}{\numberline {2}Requirements}{3}
+\contentsline {section}{\numberline {2.1}Functional Requirements (\textit {The system will...}):}{3}
+\contentsline {section}{\numberline {2.2}Non-functional Requirements (\textit {The system will be...}):}{4}
+\contentsline {section}{\numberline {2.3}Design Constraints}{4}
+\contentsline {chapter}{\numberline {3}Use Cases}{5}
+\contentsline {chapter}{\numberline {4}Activity Diagram}{9}
+\contentsline {chapter}{\numberline {5}Technologies Used}{11}
+\contentsline {section}{\numberline {5.1}Tesseract Optical Character Recognition Engine:}{11}
+\contentsline {section}{\numberline {5.2}TensorFlow:}{11}
+\contentsline {section}{\numberline {5.3}OpenCV:}{11}
+\contentsline {section}{\numberline {5.4}NumPy:}{11}
+\contentsline {section}{\numberline {5.5}scikit-learn:}{12}
+\contentsline {chapter}{\numberline {6}Architectual Diagrams}{13}
+\contentsline {chapter}{\numberline {7}Design Rationale}{15}
+\contentsline {section}{\numberline {7.1}Architecture}{15}
+\contentsline {section}{\numberline {7.2}Technologies}{16}
+\contentsline {chapter}{\numberline {8}Test Plan}{18}
+\contentsline {section}{\numberline {8.1}Alpha Testing}{18}
+\contentsline {section}{\numberline {8.2}Beta Testing}{18}
+\contentsline {chapter}{\numberline {9}Risk Analysis}{19}
+\contentsline {chapter}{\numberline {10}Development Timeline}{21}
