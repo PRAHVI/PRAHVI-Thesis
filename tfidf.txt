@@ -1,0 +1,17 @@
+In order to provide our users with a summary of the text we have extracted we use an algorithm called Term Frequency-Inverse Document Frequency, or TFIDF for short.
+
+The goals of TFIDF are to obtain statistically important keywords from the text in question. 
+It does this by taking giving each word in the target document a score based of two statistics, the word frequency and the inverse documnet frequency.
+The word frequency is simply just the number of times the word appears in the target document and the inverse document frequency is calculated by taking the log of the total number of documents in the corpus divided by the number of documents that the word appears in.
+
+The final score for each word is calulated as follows: tf * idf
+
+The rationale behind the tfidf algorithm is to reduce the importance of words that appear often yet have no overall significance. Examples of such words are: the, and, is, etc.
+
+The reason why we choose tfidf for our text summary is because its one of the more popular and well known term-weighting schemes, its easy to implement, and once it's set up it is computationally fast.
+
+The corpus of documents are gathered by us. Our goal was to accumalate documents in the news domain so that way our text summarization would be inline with the domain of PRAHVI functional requirements. Our strategy was to build our corpus by scraping the top online news reposotories for all of there news articles. 
+
+We took the 50 top online news websites according to the following internet article and we used a python library called newspaper to gather the body text every article currently live on the site.
+
+Once our corpus was collected we precomputed the inverse document frequencies for each term in our corpus.
