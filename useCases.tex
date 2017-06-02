@@ -1,5 +1,8 @@
 \chapter{Use Cases}
 The Use Cases section defines specifics regarding the main, expected interactions between users and the system.
+
+Figure figure~\ref{fig:useCase} shows the list of use cases that we would like the final product to have, due to time constraints we only implemented the "Reading" use case.
+
 \begin{figure}
 	\label{fig:useCase}
 	\centering
@@ -10,13 +13,25 @@ The Use Cases section defines specifics regarding the main, expected interaction
 
 \pagebreak
 
-\underline {"Gaze"}
+\underline {Idle}
 \begin{description}
-\item [Goal] Identify and obtain graphical input
+\item [Goal] Put the device to sleep to preserve power.
 \item [Actor] User
 \item [Preconditions] Device must be turned on
-\item [Steps] User stare at the document he will to know
-\item [Postconditions] Graphical input pass to optical character recognition engine
+\item [Steps] User set the device to idle
+\item [Postconditions] Disconnect connection to headset and server
+\item [Exceptions] N/A
+\end{description}
+
+%asdfasdf
+
+\underline {Reading}
+\begin{description}
+\item [Goal] Identify and obtain large amount of text and provide feedback to user
+\item [Actor] User
+\item [Preconditions] Device must be turned on and set to Reading Mode
+\item [Steps] User stare at the document he will to know and order the device to capture the image
+\item [Postconditions] Audio feedback send to user
 \item [Exceptions] Unstable input, such that the motion of the headset is outside the threshold
 \end{description}
 
@@ -24,42 +39,12 @@ The Use Cases section defines specifics regarding the main, expected interaction
 \vspace{5mm}
 
 
-\underline {Receive orientation feedback}
+\underline {Discovery}
 \begin{description}
-\item [Goal] Inform the user to change the way he is looking at the document, such as tilt his head
+\item [Goal] Inform the user about potential point of interest around him or her
 \item [Actor] User
-\item [Preconditions] Graphical input pass to optical character recognition engine
-\item [Steps] Follow the instructions
-\item [Postconditions] Graphical input pass to optical character recognition engine
-\item [Exceptions] User choose not to recognize the text
+\item [Preconditions] Device must be turned on and set to Discovery Mode
+\item [Steps] User need to move his or her head around to capture the surrounding
+\item [Postconditions] Audio feedback send to user
+\item [Exceptions] Unstable input, such that the motion of the headset is outside the threshold
 \end{description}
-
-
-\vspace{5mm}
-
-
-\underline {Receive summary feedback}
-\begin{description}
-\item [Goal] Provides the user with a summary of the document
-\item [Actor] User
-\item [Preconditions] Document recognized by OCR and processed by text summarization engine
-\item [Steps] Auto output to user after successful scan for document
-\item [Postconditions] Request user for content feedback
-\item [Exceptions] User choose to abort
-\end{description}
-
-
-\vspace{5mm}
-\pagebreak
-
-\underline {Receive content feedback}
-\begin{description}
-\item [Goal] Provides the user with the content of the document
-\item [Actor] User
-\item [Preconditions] User received summary feedback and wished more detailed content
-\item [Steps] After the user listen to the summary feedback, he can press the control button to initiate the action
-\item [Postconditions] N/A
-\item [Exceptions] User choose to abort
-\end{description}
-
-
