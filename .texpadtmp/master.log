@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  2 JUN 2017 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  2 JUN 2017 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -327,13 +327,6 @@ Missing character: There is no ™ in font cmss10!
 
  (./useCases.tex
 Chapter 3.
-
-Package caption Warning: \label without proper reference on input line 7.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `useCase' on page 5 undefined on input line 4.
-
 <useCase.png, id=41, 1187.43625pt x 973.6375pt>
 File: useCase.png Graphic file (type png)
  <use useCase.png>
@@ -731,7 +724,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,13n,42p,1939b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (47 pages, 4888569 bytes).
+Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (47 pages, 4888470 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
  125 compressed objects within 2 object streams
