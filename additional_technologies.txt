@@ -1,0 +1,5 @@
+Flask
+	- Flask is a lightweight python web framework which PRAHVI's backend is built on top of.
+
+Nginx
+	- Nginx is a the proxy server technology that is used to deploy our Flask web server and expose it via the internet.

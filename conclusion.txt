@@ -1,0 +1,6 @@
+In this project we designed and implemented a novel and cost efficient device that assists the visually impaired. 
+Our device allows users to navigate text by taking a picture of an article of text that they are gazing at, translate this image to text, and finally provide a summary of the text to the user. 
+Costs were kept low by working with general purpose computing hardware such as the Raspberry Pi Zero, and the ubiquitous smart mobile devices.
+We primarly focused on specific domain of news articles that the software works well in. In addition, we focused on lighting scenes with have sufficient lighting , and we targeted a font range of 10 to 100 pixels.
+
+In the future, we would like to make our system extensible to more text domains and perform more robustly in harder lightling situations.

@@ -1,0 +1,10 @@
+The backend of PRAHVI is a flask web application. It holds all the functionality related to the computer vision, ocr, and text summarization related tasks PRAHVI requires.
+
+The interface of the backend is a simple set of HTTP endpoints which are summarized as follows:
+
+
+The PRAHVI iOS application makes calls to these endpoints in order to translate an image to text as well as summarize the text using the TFIDF.
+
+Due to the limited compute resources in our mobile device, having the backend end hosted on a server allows for a faster processing time as noted in our testbench.
+
+
