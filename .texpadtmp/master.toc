@@ -34,6 +34,18 @@
 \contentsline {chapter}{\numberline {9}Risk Analysis}{17}
 \contentsline {chapter}{\numberline {10}Sustainability}{19}
 \contentsline {chapter}{\numberline {11}Appendix}{24}
-\contentsline {section}{\numberline {11.1}Federal Communications Commission on Wearables}{24}
-\contentsline {section}{\numberline {11.2}Apache License 2.0}{24}
-\contentsline {section}{\numberline {11.3}BSD License and BSD-new License}{24}
+\contentsline {section}{\numberline {11.1}Sample Testing Documents}{24}
+\contentsline {subsection}{\numberline {11.1.1}Can Amazon's assistant stay on top?}{24}
+\contentsline {subsubsection}{Original Text}{24}
+\contentsline {subsubsection}{Detected Text}{25}
+\contentsline {subsection}{\numberline {11.1.2}Dubai becomes first city to get its own Microsoft font}{25}
+\contentsline {subsubsection}{Original Text}{25}
+\contentsline {subsubsection}{Detected Text}{26}
+\contentsline {subsection}{\numberline {11.1.3}FCC website 'targeted by attack' after John Oliver comments}{26}
+\contentsline {subsubsection}{Original Text}{26}
+\contentsline {subsubsection}{Detected Text}{27}
+\contentsline {section}{\numberline {11.2}Code}{28}
+\contentsline {subsection}{\numberline {11.2.1}Raspberry Pi}{28}
+\contentsline {subsection}{\numberline {11.2.2}Smart Phone Application}{28}
+\contentsline {subsection}{\numberline {11.2.3}Server}{28}
+\contentsline {subsubsection}{Text Extraction}{28}
