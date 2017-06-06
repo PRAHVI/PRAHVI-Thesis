@@ -7,9 +7,9 @@
 \contentsline {section}{\numberline {2.2}Non-functional Requirements:}{4}
 \contentsline {section}{\numberline {2.3}Design Constraints}{4}
 \contentsline {chapter}{\numberline {3}Use Cases}{5}
-\contentsline {subsubsection}{Idle}{6}
-\contentsline {subsubsection}{Reading}{6}
-\contentsline {subsubsection}{Discovery}{6}
+\contentsline {section}{\numberline {3.1}Idle}{6}
+\contentsline {section}{\numberline {3.2}Reading}{6}
+\contentsline {section}{\numberline {3.3}Discovery}{6}
 \contentsline {chapter}{\numberline {4}Activity Diagram}{7}
 \contentsline {chapter}{\numberline {5}Technologies Used}{8}
 \contentsline {section}{\numberline {5.1}Tesseract Optical Character Recognition Engine:}{8}
@@ -33,29 +33,29 @@
 \contentsline {chapter}{\numberline {7}Design Rationale}{14}
 \contentsline {section}{\numberline {7.1}Architecture}{14}
 \contentsline {section}{\numberline {7.2}Technologies}{15}
-\contentsline {chapter}{\numberline {8}Testing}{17}
-\contentsline {section}{\numberline {8.1}Alpha Testing}{17}
-\contentsline {subsection}{\numberline {8.1.1}Function Testing}{17}
-\contentsline {subsection}{\numberline {8.1.2}System Testing}{17}
-\contentsline {subsubsection}{Performance}{17}
-\contentsline {section}{\numberline {8.2}Beta Testing}{18}
-\contentsline {chapter}{\numberline {9}Risk Analysis}{19}
-\contentsline {chapter}{\numberline {10}Ethical Analysis}{21}
-\contentsline {chapter}{\numberline {11}Sustainability}{23}
-\contentsline {chapter}{\numberline {12}Conclusion}{27}
-\contentsline {chapter}{\numberline {13}Appendix}{28}
-\contentsline {section}{\numberline {13.1}Sample Testing Documents}{28}
-\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{28}
+\contentsline {chapter}{\numberline {8}Testing}{16}
+\contentsline {section}{\numberline {8.1}Alpha Testing}{16}
+\contentsline {subsection}{\numberline {8.1.1}Function Testing}{16}
+\contentsline {subsection}{\numberline {8.1.2}System Testing}{16}
+\contentsline {subsubsection}{Performance}{16}
+\contentsline {section}{\numberline {8.2}Beta Testing}{17}
+\contentsline {chapter}{\numberline {9}Risk Analysis}{18}
+\contentsline {chapter}{\numberline {10}Ethical Analysis}{20}
+\contentsline {chapter}{\numberline {11}Sustainability}{22}
+\contentsline {chapter}{\numberline {12}Conclusion}{26}
+\contentsline {chapter}{\numberline {13}Appendix}{27}
+\contentsline {section}{\numberline {13.1}Sample Testing Documents}{27}
+\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{27}
+\contentsline {subsubsection}{Original Text}{27}
+\contentsline {subsubsection}{Detected Text}{28}
+\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{28}
 \contentsline {subsubsection}{Original Text}{28}
 \contentsline {subsubsection}{Detected Text}{29}
-\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{29}
+\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{29}
 \contentsline {subsubsection}{Original Text}{29}
 \contentsline {subsubsection}{Detected Text}{30}
-\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{30}
-\contentsline {subsubsection}{Original Text}{30}
-\contentsline {subsubsection}{Detected Text}{31}
-\contentsline {section}{\numberline {13.2}Code}{32}
-\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{32}
-\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{32}
-\contentsline {subsection}{\numberline {13.2.3}Server}{32}
-\contentsline {subsubsection}{Text Extraction}{32}
+\contentsline {section}{\numberline {13.2}Code}{31}
+\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{31}
+\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{31}
+\contentsline {subsection}{\numberline {13.2.3}Server}{31}
+\contentsline {subsubsection}{Text Extraction}{31}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 JUN 2017 06:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 JUN 2017 09:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -167,8 +167,8 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 144.
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/technologiesUsed.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/designRationale.aux)
-(/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/technologiesUsed.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux)
+(/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 \openout1 = `master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -251,20 +251,20 @@ Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
  [3
 
-]) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.toc [4
+]) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.toc [4
 
 
 ])
 \tf@toc=\write3
 \openout3 = `master.toc'.
 
- [5] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.lof)
+ [5] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.lof)
 \tf@lof=\write4
 \openout4 = `master.lof'.
 
  [6
 
-] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.lot)
+] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.lot)
 \tf@lot=\write5
 \openout5 = `master.lot'.
 
@@ -341,20 +341,13 @@ Package pdftex.def Info: useCase.png used on input line 9.
 
  (./activityDiagrams.tex
 Chapter 4.
-
-Package caption Warning: \label without proper reference on input line 7.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `activityDiagram' on page 7 undefined on input line 2.
-
 <Activity_H.png, id=51, 1668.2325pt x 570.13pt>
 File: Activity_H.png Graphic file (type png)
  <use Activity_H.png>
-Package pdftex.def Info: Activity_H.png used on input line 9.
+Package pdftex.def Info: Activity_H.png used on input line 8.
 (pdftex.def)             Requested size: 433.73022pt x 148.2303pt.
 
-Overfull \hbox (6.29869pt too wide) in paragraph at lines 9--10
+Overfull \hbox (6.29869pt too wide) in paragraph at lines 8--9
  [][] 
  []
 
@@ -404,7 +397,7 @@ Missing character: There is no ô in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
- [15]) [16]
+) [15]
 \openout2 = `testPlan.aux'.
 
  (./testPlan.tex
@@ -412,26 +405,26 @@ Chapter 8.
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ì in font cmss10!
-[17
+[16
 
 
 
-] <Amazon.jpeg, id=89, 1541.76pt x 2055.68pt>
+] <Amazon.jpeg, id=86, 1541.76pt x 2055.68pt>
 File: Amazon.jpeg Graphic file (type jpg)
  <use Amazon.jpeg>
 Package pdftex.def Info: Amazon.jpeg used on input line 29.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <FacebookBot.jpeg, id=90, 1541.76pt x 2055.68pt>
+ <FacebookBot.jpeg, id=87, 1541.76pt x 2055.68pt>
 File: FacebookBot.jpeg Graphic file (type jpg)
  <use FacebookBot.jpeg>
 Package pdftex.def Info: FacebookBot.jpeg used on input line 30.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <IMG_9203.jpeg, id=91, 2258.4375pt x 3011.25pt>
+ <IMG_9203.jpeg, id=88, 2258.4375pt x 3011.25pt>
 File: IMG_9203.jpeg Graphic file (type jpg)
  <use IMG_9203.jpeg>
 Package pdftex.def Info: IMG_9203.jpeg used on input line 31.
 (pdftex.def)             Requested size: 102.5859pt x 136.741pt.
- <IMG_9259.JPG, id=92, 3035.34pt x 4047.12pt>
+ <IMG_9259.JPG, id=89, 3035.34pt x 4047.12pt>
 File: IMG_9259.JPG Graphic file (type jpg)
  <use IMG_9259.JPG>
 Package pdftex.def Info: IMG_9259.JPG used on input line 32.
@@ -441,7 +434,7 @@ Package pdftex.def Info: IMG_9259.JPG used on input line 32.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 41.
 
-) [18 <./Amazon.jpeg> <./FacebookBot.jpeg> <./IMG_9203.jpeg> <./IMG_9259.JPG>]
+) [17 <./Amazon.jpeg> <./FacebookBot.jpeg> <./IMG_9203.jpeg> <./IMG_9259.JPG>]
 \openout2 = `riskAnalysis.aux'.
 
  (./riskAnalysis.tex
@@ -450,20 +443,20 @@ Chapter 9.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 4.
 
-<riskTable.png, id=97, 615.29875pt x 550.055pt>
-File: riskTable.png Graphic file (type png)
- <use riskTable.png>
-Package pdftex.def Info: riskTable.png used on input line 8.
-(pdftex.def)             Requested size: 307.64862pt x 275.02682pt.
- [19
+
+Overfull \hbox (39.74991pt too wide) in paragraph at lines 8--17
+ [][] 
+ []
+
+[18
 
 
 
-] [20 <./riskTable.png>]
+] [19]
 Chapter 10.
-[21
+[20
 
-] [22]
+] [21]
 Chapter 11.
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
@@ -486,12 +479,25 @@ Missing character: There is no ô in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
-[23
+[22
 
 ]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ô in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ô in font cmss10!
+ [23]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
@@ -507,51 +513,38 @@ Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ô in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
  [25]
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
- [26]
 Chapter 12.
-) [27
+) [26
 
 ]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 Chapter 13.
-[28
+[27
 
 
 
 
-] [29]
+] [28]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ¶ in font cmss10!
- [30] [31]
+ [29] [30]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 LaTeX Font Info:    Try loading font information for OML+cmss on input line 186.
@@ -562,19 +555,19 @@ LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
 (Font)              for symbol `textless' on input line 186.
 
-[32]
+[31]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [32]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
  [33]
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
- [34]
 Missing character: There is no Í in font cmss8!
 Missing character: There is no ú in font cmss8!
 Missing character: There is no ≤ in font cmss8!
@@ -687,48 +680,45 @@ Missing character: There is no Ü in font cmss8!
 Missing character: There is no Ô in font cmss8!
 Missing character: There is no ¨ in font cmss8!
 Missing character: There is no Ö in font cmss8!
+ [34]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
  [35]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
- [36]
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
- [37] [38]
+ [36] [37]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [39] [40] [41]
+ [38] [39] [40]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [42] [43]
+ [41] [42]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
-) [44] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/technologiesUsed.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+) [43] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/technologiesUsed.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 5334 strings out of 493014
- 82067 string characters out of 6133351
+ 5329 strings out of 493014
+ 81641 string characters out of 6133351
  478369 words of memory out of 5000000
- 8739 multiletter control sequences out of 15000+600000
+ 8735 multiletter control sequences out of 15000+600000
  9664 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,13n,42p,1939b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,14n,42p,1939b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.pdf (51 pages, 4895679 bytes).
+Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (50 pages, 4769644 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 202 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
