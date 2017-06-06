@@ -18,41 +18,44 @@
 \contentsline {section}{\numberline {5.4}Nginx:}{8}
 \contentsline {chapter}{\numberline {6}Architecture}{9}
 \contentsline {section}{\numberline {6.1}Architectural Diagram}{9}
-\contentsline {section}{\numberline {6.2}Backend}{9}
-\contentsline {section}{\numberline {6.3}System Flow}{10}
-\contentsline {section}{\numberline {6.4}Text Extraction}{10}
-\contentsline {subsection}{\numberline {6.4.1}Image Pre-processing}{10}
-\contentsline {subsubsection}{Blurriness Test}{10}
-\contentsline {subsubsection}{Similarity Test}{10}
-\contentsline {subsection}{\numberline {6.4.2}Image Processing}{11}
+\contentsline {section}{\numberline {6.2}Hardware Interface}{9}
+\contentsline {section}{\numberline {6.3}User Interface}{10}
+\contentsline {section}{\numberline {6.4}Backend}{10}
+\contentsline {section}{\numberline {6.5}System Flow}{10}
+\contentsline {section}{\numberline {6.6}Text Extraction}{11}
+\contentsline {subsection}{\numberline {6.6.1}Image Pre-processing}{11}
+\contentsline {subsubsection}{Blurriness Test}{11}
+\contentsline {subsubsection}{Similarity Test}{11}
+\contentsline {subsection}{\numberline {6.6.2}Image Processing}{11}
 \contentsline {subsubsection}{Text Area Extraction}{11}
-\contentsline {subsubsection}{Text Detection}{11}
-\contentsline {section}{\numberline {6.5}Text Summarization}{11}
-\contentsline {chapter}{\numberline {7}Design Rationale}{13}
-\contentsline {section}{\numberline {7.1}Architecture}{13}
-\contentsline {section}{\numberline {7.2}Technologies}{14}
-\contentsline {chapter}{\numberline {8}Testing}{16}
-\contentsline {section}{\numberline {8.1}Alpha Testing}{16}
-\contentsline {subsection}{\numberline {8.1.1}Function Testing}{16}
-\contentsline {subsection}{\numberline {8.1.2}System Testing}{16}
-\contentsline {subsubsection}{Performance}{16}
-\contentsline {section}{\numberline {8.2}Beta Testing}{17}
-\contentsline {chapter}{\numberline {9}Risk Analysis}{18}
-\contentsline {chapter}{\numberline {10}Sustainability}{20}
-\contentsline {chapter}{\numberline {11}Conclusion}{24}
-\contentsline {chapter}{\numberline {12}Appendix}{25}
-\contentsline {section}{\numberline {12.1}Sample Testing Documents}{25}
-\contentsline {subsection}{\numberline {12.1.1}Can Amazon's assistant stay on top?}{25}
-\contentsline {subsubsection}{Original Text}{25}
-\contentsline {subsubsection}{Detected Text}{26}
-\contentsline {subsection}{\numberline {12.1.2}Dubai becomes first city to get its own Microsoft font}{26}
-\contentsline {subsubsection}{Original Text}{26}
-\contentsline {subsubsection}{Detected Text}{27}
-\contentsline {subsection}{\numberline {12.1.3}FCC website 'targeted by attack' after John Oliver comments}{27}
-\contentsline {subsubsection}{Original Text}{27}
-\contentsline {subsubsection}{Detected Text}{28}
-\contentsline {section}{\numberline {12.2}Code}{29}
-\contentsline {subsection}{\numberline {12.2.1}Raspberry Pi}{29}
-\contentsline {subsection}{\numberline {12.2.2}Smart Phone Application}{29}
-\contentsline {subsection}{\numberline {12.2.3}Server}{29}
-\contentsline {subsubsection}{Text Extraction}{29}
+\contentsline {subsubsection}{Text Detection}{12}
+\contentsline {section}{\numberline {6.7}Text Summarization}{12}
+\contentsline {chapter}{\numberline {7}Design Rationale}{14}
+\contentsline {section}{\numberline {7.1}Architecture}{14}
+\contentsline {section}{\numberline {7.2}Technologies}{15}
+\contentsline {chapter}{\numberline {8}Testing}{17}
+\contentsline {section}{\numberline {8.1}Alpha Testing}{17}
+\contentsline {subsection}{\numberline {8.1.1}Function Testing}{17}
+\contentsline {subsection}{\numberline {8.1.2}System Testing}{17}
+\contentsline {subsubsection}{Performance}{17}
+\contentsline {section}{\numberline {8.2}Beta Testing}{18}
+\contentsline {chapter}{\numberline {9}Risk Analysis}{19}
+\contentsline {chapter}{\numberline {10}Ethical Analysis}{21}
+\contentsline {chapter}{\numberline {11}Sustainability}{23}
+\contentsline {chapter}{\numberline {12}Conclusion}{27}
+\contentsline {chapter}{\numberline {13}Appendix}{28}
+\contentsline {section}{\numberline {13.1}Sample Testing Documents}{28}
+\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{28}
+\contentsline {subsubsection}{Original Text}{28}
+\contentsline {subsubsection}{Detected Text}{29}
+\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{29}
+\contentsline {subsubsection}{Original Text}{29}
+\contentsline {subsubsection}{Detected Text}{30}
+\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{30}
+\contentsline {subsubsection}{Original Text}{30}
+\contentsline {subsubsection}{Detected Text}{31}
+\contentsline {section}{\numberline {13.2}Code}{32}
+\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{32}
+\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{32}
+\contentsline {subsection}{\numberline {13.2.3}Server}{32}
+\contentsline {subsubsection}{Text Extraction}{32}

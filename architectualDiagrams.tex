@@ -9,6 +9,11 @@ This system has a data-flow architecture (see Figure~\ref{architectualDiagram}),
 	\label{architectualDiagram}
 \end{figure}
 
+\section{Hardware Interface}
+PRAHVI, itself, is a wearable headset device that attaches to a typical pair of glasses or can be manufactured as a single assembly. PRAHVI is comprised of a Raspberry Pi Zero compute board coupled with a standard Raspberry Pi Camera. The modular nature of these parts allows for future expansion and easy repairs for the user and for other developers. The Raspberry Pi Zero, in particular, was chosen for its low power consumption and wide application flexibility. Once the device is connected to the user's smartphone and the accompanying app is opened, PRAHVI powers up and immediately begins communicating with the smartphone.
+
+\section{User Interface}
+The user interface of PRAHVI is mainly comprised of a gesture pad that allows for text translation and navigation with minimal use of visual and audible cues. Once the user connects the headset and opens the app, PRAHVI immediately begins scanning the environment, adjusting the camera parameters to find a set point that produces a clear, usable image. Swiping the gesture area allows the user to navigate the text in realtime, with the smartphone providing haptic feedback. Tapping the gesture area starts the translation process, as PRAHVI captures an image and sends the image to the backend, before signaling to the user a quick summarization of the text and then a full translation.
 
 \section{Backend}
 The backend of PRAHVI is a flask web application. It holds all the functionality related to the computer vision, optical character recognition, and text summarization related tasks PRAHVI requires.
