@@ -32,10 +32,21 @@ The interface of the backend is a simple set of HTTP endpoints which are summari
 Once the camera captures the image and sends the image to the smart phone, the image will pass through the pre-processing stage to detect whether the image will be processed or not. Once the image passes the pre-processing stage, it is processed for text, and is then output as audio feedback.
 
 \section{Text Extraction}
+
 \subsection{Image Pre-processing}When the smart phone application receives the image, the image is then passed through 2 filters. The first filter detects the blurriness of the image. If the image is blurred, the phone will reject the image because it is hard to extract useful information from a blurred imaged. If the image passed the blurriness test, it will then be used to compare to the previous detected image for similarity. If the image is similar (or the same), the image will also be rejected, because the information from the same document is stored in the device from the previous capture. These 2 filters help to improve the efficiency of the system and save time waited by the user.
 
 \subsubsection{Blurriness Test}To test for blurriness, variance of Laplacian is used. The image is treated as a 2-dimensional matrix, and the variance of Laplacian of the matrix is generated. The variance of Laplacian of the image is then compared to a threshold value (the threshold value used for this system is 50). If the variance of Laplacian of the image is lower than the threshold, then the image is blurred, otherwise, it is not.\subsubsection{Similarity Test}The similarity test uses the accelerated-KAZE (AKAZE) local features matching.\footnote{http://docs.opencv.org/3.0-beta/doc/tutorials/features2d/akaze\_matching/akaze\_matching.html}~The AKAZE local features matching returns a list of matches between the two images. If the number of matches is above the threshold (the threshold value used for this system is 1000), then the images is said to be similar.
-\subsection{Image Processing}When the image passed the blurriness test and the similarity test, the system will try to detect the text area in the image and extract the text area. The extracted text area is then sent to the Tesseract Optical Character Recognition (OCR) Engine to convert the image to computer encoded characters.\subsubsection{Text Area Extraction}To extract the text area, a copy of the image is first blurred (Gaussian Blur is used in implementation) to detect the edges in the image (Canny Edge Detection is used in implementation). From the edges of the image, contours are then collected and sorted in descending order based on their area.
+\subsection{Image Processing}
+\begin{figure}
+	\centering
+    \includegraphics[scale = 0.4]{ImageProcess.png}
+    
+    \caption{Image Process Flow}
+	\label{imageProcessFlow}
+\end{figure}When the image passed the blurriness test and the similarity test, the system will try to detect the text area in the image and extract the text area. The extracted text area is then sent to the Tesseract Optical Character Recognition (OCR) Engine to convert the image to computer encoded characters. (see Figure~\ref{imageProcessFlow})
+
+\pagebreak
+\subsubsection{Text Area Extraction}To extract the text area, a copy of the image is first blurred (Gaussian Blur is used in implementation) to detect the edges in the image (Canny Edge Detection is used in implementation). From the edges of the image, contours are then collected and sorted in descending order based on their area.
 
 
 From the list of sorted contours, the biggest contour that can be approximated to a quadrilateral is identified as the text area. The text area is then applied with a perspective transformation to convert the text area to a rectangle	 as if the document is scanned. This increases the accuracy of the result from Tesseract OCR Engine. \subsubsection{Text Detection}The transformed text area is processed by the Tesseract OCR Engine to identify the bounding boxes of the text in the image and convert the image to computer encoded characters. The computer-encoded characters are then processed to extract key features and feedback to the user.

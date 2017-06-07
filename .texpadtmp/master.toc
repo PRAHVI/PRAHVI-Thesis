@@ -27,7 +27,7 @@
 \contentsline {subsubsection}{Blurriness Test}{11}
 \contentsline {subsubsection}{Similarity Test}{11}
 \contentsline {subsection}{\numberline {6.6.2}Image Processing}{11}
-\contentsline {subsubsection}{Text Area Extraction}{11}
+\contentsline {subsubsection}{Text Area Extraction}{12}
 \contentsline {subsubsection}{Text Detection}{12}
 \contentsline {section}{\numberline {6.7}Text Summarization}{12}
 \contentsline {chapter}{\numberline {7}Design Rationale}{14}
