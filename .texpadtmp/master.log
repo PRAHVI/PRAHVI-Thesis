@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 JUN 2017 09:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 JUN 2017 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,11 +245,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 \openout2 = `abstract.aux'.
 
- (./abstract.tex
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
- [3
+ (./abstract.tex [3
 
 ]) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.toc [4
 
@@ -282,9 +278,6 @@ Chapter 1.
 ]
 Missing character: There is no â in font cmss10!
 Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
 Missing character: There is no œ in font cmss10!
 Missing character: There is no â in font cmss10!
 Missing character: There is no € in font cmss10!
@@ -301,27 +294,15 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbullet' on input line 5.
 
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
 [3
 
 
 
 ]
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 24.
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
 ) [4]
 \openout2 = `useCases.aux'.
 
@@ -341,13 +322,13 @@ Package pdftex.def Info: useCase.png used on input line 9.
 
  (./activityDiagrams.tex
 Chapter 4.
-<Activity_H.png, id=51, 1668.2325pt x 570.13pt>
+<Activity_H.png, id=51, 4155.525pt x 1410.26875pt>
 File: Activity_H.png Graphic file (type png)
  <use Activity_H.png>
 Package pdftex.def Info: Activity_H.png used on input line 8.
-(pdftex.def)             Requested size: 433.73022pt x 148.2303pt.
+(pdftex.def)             Requested size: 436.31131pt x 148.07182pt.
 
-Overfull \hbox (6.29869pt too wide) in paragraph at lines 8--9
+Overfull \hbox (8.87978pt too wide) in paragraph at lines 8--9
  [][] 
  []
 
@@ -383,12 +364,6 @@ Package pdftex.def Info: ArchitectureDiagram.png used on input line 6.
 
  (./designRationale.tex
 Chapter 7.
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
 [14
 
 
@@ -412,27 +387,27 @@ Missing character: There is no “ in font cmss10!
 ] <Amazon.jpeg, id=86, 1541.76pt x 2055.68pt>
 File: Amazon.jpeg Graphic file (type jpg)
  <use Amazon.jpeg>
-Package pdftex.def Info: Amazon.jpeg used on input line 29.
+Package pdftex.def Info: Amazon.jpeg used on input line 31.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
  <FacebookBot.jpeg, id=87, 1541.76pt x 2055.68pt>
 File: FacebookBot.jpeg Graphic file (type jpg)
  <use FacebookBot.jpeg>
-Package pdftex.def Info: FacebookBot.jpeg used on input line 30.
+Package pdftex.def Info: FacebookBot.jpeg used on input line 32.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
  <IMG_9203.jpeg, id=88, 2258.4375pt x 3011.25pt>
 File: IMG_9203.jpeg Graphic file (type jpg)
  <use IMG_9203.jpeg>
-Package pdftex.def Info: IMG_9203.jpeg used on input line 31.
+Package pdftex.def Info: IMG_9203.jpeg used on input line 33.
 (pdftex.def)             Requested size: 102.5859pt x 136.741pt.
  <IMG_9259.JPG, id=89, 3035.34pt x 4047.12pt>
 File: IMG_9259.JPG Graphic file (type jpg)
  <use IMG_9259.JPG>
-Package pdftex.def Info: IMG_9259.JPG used on input line 32.
+Package pdftex.def Info: IMG_9259.JPG used on input line 34.
 (pdftex.def)             Requested size: 102.5859pt x 136.72334pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 41.
+               Default added (so using `tbp') on input line 43.
 
 ) [17 <./Amazon.jpeg> <./FacebookBot.jpeg> <./IMG_9203.jpeg> <./IMG_9259.JPG>]
 \openout2 = `riskAnalysis.aux'.
@@ -715,7 +690,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,14n,42p,1939b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (50 pages, 4769644 bytes).
+Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (50 pages, 4834209 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  132 compressed objects within 2 object streams

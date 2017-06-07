@@ -5,7 +5,7 @@
 	\section{Alpha Testing}
 		\subsection{Function Testing}
 
-		During function testing, each part of the system is tested individual during development time.
+		During function testing, each part of the system was tested individually.
 		The following are some examples of function testing performed:
 		\begin{itemize}
 			\item Graphical input from camera
@@ -15,13 +15,15 @@
 
 		\subsection{System Testing}
 
-		The system is tested as a whole. The test is focus on where all modules and functions within the system cooperating with each other, and whether the system functions as a whole.
+		The system was tested as a whole. The test is focused on where all modules and functions within the system are cooperating with each other, and whether the system functions as a whole.
 		
 		\subsubsection{Performance}
-		The performance of the system is tested with a test set of 30 images (see Figure~\ref{testImages}) with both versions of Tesseract OCR – Tesseract 3.05.00\footnote{https://github.com/tesseract-ocr/tesseract/wiki} and Tesseract 4.00.00\footnote{https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM}.
+		The performance of the system is tested with a test set of 30 images (see Figure~\ref{testImages}) with both versions of Tesseract OCR – Tesseract 3.05.00\footnote{https://github.com/tesseract-ocr/tesseract/wiki} and Tesseract 4.00.00.\footnote{https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM}
 		
-		The document in the test images are collected from BBC News (www.bbc.com), this way the ground truth of the document (the original computer encoded characters) can be used to compare with the result of the system.
-		The test images cover a variety of different backgrounds, motions, blurriness and brightness. The test results (see Table~\ref{performanceAnalysis}) show that Tesseract 4 provides significant better results than Tesseract 3, even though Tesseract 4 is still in alpha stage.
+		The test results (see Table~\ref{performanceAnalysis}) show that Tesseract 4 provides significant better results than Tesseract 3, even though Tesseract 4 is still in alpha stage.
+		
+		The documents in the test images are collected from BBC News (www.bbc.com). This way the ground truth of the document (the original computer encoded characters) can be used to compare with the result of the system.
+		The test images cover a variety of different backgrounds, motions, blurriness and brightness. 
 		
 \begin{figure}
   \begin{subfigure}{\linewidth}
@@ -31,7 +33,7 @@
 	  \includegraphics[width=.24\linewidth]{IMG_9259.JPG}
   \end{subfigure}\par\medskip  
   
-  \caption{Some testing images used}
+  \caption{Testing images gathered during System Testing}
   \label{testImages}
 \end{figure}
 
@@ -51,4 +53,4 @@
 \end{table}
 
 	\section{Beta Testing}
-	The product will be tested by visually impaired students on campus of Santa Clara University for actual user feedbacks.
+	The product was tested by visually impaired students on campus of Santa Clara University for actual user feedbacks.
