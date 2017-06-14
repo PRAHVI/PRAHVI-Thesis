@@ -18,7 +18,7 @@ The modular nature of these parts allows for future expansion and easy repairs f
 The user interface of PRAHVI is mainly comprised of a gesture pad that allows for text translation and navigation with minimal use of visual and audible cues. Once the user connects the headset and opens the app, PRAHVI immediately begins scanning the environment, adjusting the camera parameters to find a set point that produces a clear, usable image. Swiping the gesture area allows the user to navigate the text in realtime, with the smartphone providing haptic feedback. Tapping the gesture area starts the translation process, as PRAHVI captures an image and sends the image to the backend, before signaling to the user a quick summary (see Text Summarization section for more information) of the text and then a full translation.
 
 \section{Backend}
-The backend of PRAHVI is a flask web application. It exposes all the functionality related to the computer vision, optical character recognition, and text summary into a an easy web inteface for our iPhone application to use.
+The backend of PRAHVI is a flask web application. It exposes all the functionality related to the computer vision, optical character recognition, and text summary into a an easy web interface for our iPhone application to use.
 
 The interface of the backend is a simple set of HTTP endpoints which are summarized as follows:
 
@@ -40,7 +40,7 @@ The interface of the backend is a simple set of HTTP endpoints which are summari
 
 \begin{itemize}
 
-\item Originally, all of the functionality listed above was implemented within the iPhone application, however due to the limited compute resources of the iPhone, PRAHVI's requirements were not being met. Image to text translation on average would take half a min, and the iPhone architecture was mangling some of the text results. For these reasons, these functionalities have been moved the backend end hosted on a server allows for a faster processing time as noted in our testbench. The server is a linux machine running an Intel(R) Core(TM) i7-4900MQ CPU @ 2.80GHz multi-core processor.
+\item Originally, all of the functionality listed above was implemented within the iPhone application, however due to the limited compute resources of the iPhone, PRAHVI's requirements were not being met. Image to text translation on average would take half a min, and the iPhone architecture was mangling some of the text results. For these reasons, these functionalities have been moved the backend end hosted on a server allows for a faster processing time as noted in our test bench. The server is a linux machine running an Intel(R) Core(TM) i7-4900MQ CPU @ 2.80GHz multi-core processor.
 
 \end{itemize}
 
@@ -88,14 +88,23 @@ It does this by giving each word in the target document a score based on two sta
 
 The word frequency is simply the number of times the word appears in the target document and the inverse document frequency is calculated by taking the log of the total number of documents in a text corpus (described below) divided by the number of documents that the word appears in.
 
+\pagebreak
+
 The final score for each word is calculated as follows: 
-$tf(t, d) * idf(t, D)$  
+
+	\forceindent $tf(t, d) * idf(t, D)$  
+
 where,
-$tf(t, d) = 1$ if term $t$	is in Document $d$ else it's $0$
-$idf(t, D) = log(\frac{N}{|d \in D : t \in d|}$
+
+	\forceindent $tf(t, d) = 1$ if term $t$	is in Document $d$ else it's $0$
+
+	\forceindent $idf(t, D) = log(\frac{N}{|d \in D : t \in d|}$
+
 where,
-$N$ is the number of documents in the corpus $N = |D|$
-${|d \in D : t \in d|}$: number of documents where the term $t$ appears.
+
+	\forceindent $N$ is the number of documents in the corpus $N = |D|$
+
+	\forceindent ${|d \in D : t \in d|}$: number of documents where the term $t$ appears.
 
 The rationale behind the TFIDF algorithm is to reduce the importance of words that appear often yet have no overall significance. Examples of such words are: the, and, is, etc.
 
