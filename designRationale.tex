@@ -25,11 +25,17 @@
 			\end{itemize}
 		\end{itemize}
 \pagebreak
-	\section{Technologies}
+
+
+	\section{Technologies Used}
 		\begin{itemize}
-			\item Tesseract Optical Character Recognition Engine
+			\item Tesseract Optical Character Recognition Engine version 4
+			An open source OCR engine licensed under Apache License, Version 2.0.\footnotemark~It is one of the most accurate open source OCR engines currently available.
+			
+			\footnotetext{https://www.apache.org/licenses/LICENSE-2.0.txt}
 			\begin{itemize}
 				\item Currently, the most accurate open source solution to optical character recognition
+				\item Using state of the art machine learning models for word recognition
 				\item Highly documented with academic papers written about it’s architecture
 				\item Constantly being developed by a community of developers, so if we run into problems we have a community to ask questions to
 				\item Has both a C (python wrapper) and a C++ API
@@ -37,28 +43,29 @@
 			\end{itemize}
 
 			\item OpenCV
+			An open source library of programming functions mainly aimed at real-time computer vision. Licensed under BSD license.\footnotemark
+			\footnotetext{https://en.wikipedia.org/wiki/BSD\_licenses}
 			\begin{itemize}
 				\item De Facto standard software libraries for computer vision
 				\item Lots of developer support
 				\item Open source
 				\item All of its data structures are compatible with Tesseract's API
 			\end{itemize}
+			
+			\item Flask
+			Flask is a lightweight Python web framework upon which PRAHVI's backend is built.
+			\begin{itemize}
+				\item Web client framework with the smallest learning curve
+				\item Fast and intuitive web API development
+				\item Open Source
+			\end{itemize}
 
-%			\item TensorFlow
-%			\begin{itemize}
-%				\item Supported by Google
-%				\item Scalable to distributed systems
-%				\item Machine Learning Lead has most experience with this technology
-%				\item Many examples of state of the art models implemented in TensorFlow making it easy to build upon, expand and even customize models to an application’s requirements
-%			\end{itemize}
-%
-%			\item Numpy
-%			\begin{itemize}
-%				\item Computationally efficient way of storing and computing operations involving vectors and matrices. Useful in our application because video frames and words are commonly represented and manipulated via vectors and matrix operations
-%			\end{itemize}
-%\pagebreak
-%			\item scikit-learn
-%			\begin{itemize}
-%				\item Offers state of the art plug and play machine learning models that we can use for our initial designs and provide a baseline for the performance of our system 
-%			\end{itemize}
+			\item Nginx
+			Nginx is a proxy server technology used to deploy our Flask web server and expose it via the internet.
+			\begin{itemize}
+				\item Allows us to deploy our Flask application onto the web
+				\item Seamless integration with Flask
+				\item Open Source
+			\end{itemize}
+
 		\end{itemize}

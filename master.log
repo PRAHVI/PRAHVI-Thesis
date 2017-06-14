@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 MAY 2017 15:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2017.1.17)  13 JUN 2017 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**master.tex -file-line-error
+**master.tex
 (./master.tex
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (./scu-thesis.cls
 Document Class: scu-thesis 2013/10/01 SCU Thesis class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -26,7 +26,7 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 \@margintop=\skip43
@@ -39,14 +39,14 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 \c@@departmentcount=\count90
 \c@@itemcount=\count91
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/vmargin/vmargin.sty
+(/usr/share/texlive/texmf-dist/tex/latex/vmargin/vmargin.sty
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen103
 \PaperHeight=\dimen104
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \c@tracingmulticols=\count92
 \mult@box=\box26
 \multicol@leftmargin=\dimen105
@@ -63,7 +63,6 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \multicolbaselineskip=\skip49
 \partial@page=\box27
 \last@line=\box28
-\maxbalancingoverflow=\dimen110
 \mult@rightbox=\box29
 \mult@grightbox=\box30
 \mult@gfirstbox=\box31
@@ -87,168 +86,153 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \@tempa=\box49
 \c@columnbadness=\count98
 \c@finalcolumnbadness=\count99
-\last@try=\dimen111
-\multicolovershoot=\dimen112
-\multicolundershoot=\dimen113
+\last@try=\dimen110
+\multicolovershoot=\dimen111
+\multicolundershoot=\dimen112
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
-\mc@col@check@num=\count100
+\multicol@sort@counter=\count100
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 96.
+Package graphics Info: Driver file: dvips.def on input line 91.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count101
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
-\Gin@req@height=\dimen114
-\Gin@req@width=\dimen115
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
 )
-(./master.aux (./abstract.aux) (./introduction.aux) (./requirements.aux)
-(./useCases.aux) (./activityDiagrams.aux) (./technologiesUsed.aux)
-(./architectualDiagrams.aux) (./designRationale.aux) (./testPlan.aux)
-(./riskAnalysis.aux) (./developmentTimeline.aux
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen115
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 
-LaTeX Warning: Label `fig:useCase' multiply defined.
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen116
+\captionmargin@=\dimen117
+\captionwidth=\dimen118
+\caption@tempdima=\dimen119
+\caption@indent=\dimen120
+\caption@parindent=\dimen121
+\caption@hangindent=\dimen122
+)
+\c@ContinuedFloat=\count101
+)
+\c@subfigure=\count102
+\c@subtable=\count103
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count104
+\lst@gtempboxa=\box52
+\lst@token=\toks15
+\lst@length=\count105
+\lst@currlwidth=\dimen123
+\lst@column=\count106
+\lst@pos=\count107
+\lst@lostspace=\dimen124
+\lst@width=\dimen125
+\lst@newlines=\count108
+\lst@lineno=\count109
+\lst@maxwidth=\dimen126
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count110
+\lst@skipnumbers=\count111
+\lst@framebox=\box53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 130.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+) (./master.aux
+(./abstract.aux) (./introduction.aux) (./requirements.aux) (./useCases.aux)
+(./activityDiagrams.aux) (./technologiesUsed.aux) (./architectualDiagrams.aux)
+(./designRationale.aux) (./testPlan.aux) (./riskAnalysis.aux) (./appendix.aux))
 \openout1 = `master.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen116
-\scratchbox=\box52
-\nofMPsegments=\count103
-\nofMParguments=\count104
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen117
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
-\everyMPtoPDFconversion=\toks16
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count112
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 33.
+(Font)              <7> on input line 73.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 33.
-
+(Font)              <5> on input line 73.
 [1
 
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
+] [2]
 \openout2 = `abstract.aux'.
 
- (./abstract.tex
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
- [3
+ (./abstract.tex [3
 
-]) (./master.toc
+]) (./master.toc [4
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 6.
 
-)
+])
 \tf@toc=\write3
 \openout3 = `master.toc'.
 
- [4
-
-
-] (./master.lof)
+ [5] (./master.lof)
 \tf@lof=\write4
 \openout4 = `master.lof'.
 
- [5
+ [6
 
-] (./master.lot)
+]
+(./master.lot)
 \tf@lot=\write5
 \openout5 = `master.lot'.
 
- [6
+ [7
 
 ]
 \openout2 = `introduction.aux'.
@@ -262,9 +246,6 @@ Chapter 1.
 ]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
 Missing character: There is no ú in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
@@ -274,10 +255,6 @@ Missing character: There is no ù in font cmss10!
 
  (./requirements.tex
 Chapter 2.
-
-LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 3.
-
 LaTeX Font Info:    Try loading font information for OMS+cmss on input line 5.
 LaTeX Font Info:    No file OMScmss.fd. on input line 5.
 
@@ -285,95 +262,166 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbullet' on input line 5.
 
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
 [3
 
 
 
-]
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
+] [4]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 24.
+(Font)              <8> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 24.
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-) [4]
+(Font)              <6> on input line 33.
+) [5]
 \openout2 = `useCases.aux'.
 
  (./useCases.tex
 Chapter 3.
-<useCase.png, id=39, 768.8725pt x 849.1725pt>
-File: useCase.png Graphic file (type png)
- <use useCase.png>
-Package pdftex.def Info: useCase.png used on input line 6.
-(pdftex.def)             Requested size: 307.54355pt x 339.66298pt.
- [5
+
+! LaTeX Error: Cannot determine size of graphic in useCase.png (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 	\includegraphics[scale = 0.15]{useCase.png}
+                                                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: useCase.png Graphic file (type eps)
+<useCase.png> [6
 
 
 
-] [6 <./useCase.png>] [7]) [8]
+]) [7]
 \openout2 = `activityDiagrams.aux'.
 
  (./activityDiagrams.tex
 Chapter 4.
-<activityDiagram.png, id=55, 929.4725pt x 1662.21pt>
-File: activityDiagram.png Graphic file (type png)
- <use activityDiagram.png>
-Package pdftex.def Info: activityDiagram.png used on input line 6.
-(pdftex.def)             Requested size: 278.8439pt x 498.66685pt.
-) [9
+
+! LaTeX Error: Cannot determine size of graphic in Activity_H.png (no BoundingB
+ox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 ...ludegraphics[scale = 0.105]{Activity_H.png}
+                                                  %{activityDiagram.png}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: Activity_H.png Graphic file (type eps)
+<Activity_H.png>) [8
 
 
 
-] [10 <./activityDiagram.png>]
-\openout2 = `technologiesUsed.aux'.
-
- (./technologiesUsed.tex
-Chapter 5.
-) [11
-
-
-
-] [12]
+]
 \openout2 = `architectualDiagrams.aux'.
 
  (./architectualDiagrams.tex
-Chapter 6.
-<level0.jpg, id=69, 832.10875pt x 306.14375pt>
-File: level0.jpg Graphic file (type jpg)
- <use level0.jpg>
-Package pdftex.def Info: level0.jpg used on input line 6.
-(pdftex.def)             Requested size: 416.05336pt x 153.07149pt.
+Chapter 5.
 
-<level1.jpg, id=70, 572.1375pt x 476.78125pt>
-File: level1.jpg Graphic file (type jpg)
- <use level1.jpg>
-Package pdftex.def Info: level1.jpg used on input line 13.
-(pdftex.def)             Requested size: 343.28514pt x 286.07095pt.
-) [13
+! LaTeX Error: Cannot determine size of graphic in ArchitectureDiagram.png (no 
+BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...phics[scale = 0.2]{ArchitectureDiagram.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ArchitectureDiagram.png Graphic file (type eps)
+<ArchitectureDiagram.png> [9
 
 
 
-] [14 <./level0.jpg> <./level1.jpg>]
+]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 25.
+
+! Undefined control sequence.
+<recently read> \textlessdomain 
+                                
+l.32 \textlessdomain
+                    \textgreater/api/v1/image/ocr3   & File: Image          ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Try loading font information for OML+cmss on input line 32.
+
+LaTeX Font Info:    No file OMLcmss.fd. on input line 32.
+
+LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textgreater' on input line 32.
+
+! Undefined control sequence.
+<recently read> \textlessdomain 
+                                
+l.33 \textlessdomain
+                    \textgreater/api/v1/image/ocr4   & File: Image          ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \textlessdomain 
+                                
+l.34 \textlessdomain
+                    \textgreater/api/v1/text/tfidf   & String               ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \textlessdomain 
+                                
+l.35 \textlessdomain
+                    \textgreater/api/v1/text/compare & JSON: \{ text1: strin...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (473.29198pt too wide) in paragraph at lines 29--37
+ [][] 
+ []
+
+[10]
+
+! LaTeX Error: Cannot determine size of graphic in ImageProcess.png (no Boundin
+gBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 ...udegraphics[scale = 0.4]{ImageProcess.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ImageProcess.png Graphic file (type eps)
+<ImageProcess.png> [11] [12] [13]) [14]
 \openout2 = `designRationale.aux'.
 
  (./designRationale.tex
-Chapter 7.
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
+Chapter 6.
 [15
 
 
@@ -382,89 +430,321 @@ Missing character: There is no ô in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ô in font cmss10!
  [16]) [17]
 \openout2 = `testPlan.aux'.
 
  (./testPlan.tex
-Chapter 8.
-) [18
+Chapter 7.
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ì in font cmss10!
+[18
 
 
 
 ]
+
+! LaTeX Error: Cannot determine size of graphic in Amazon.jpeg (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 ...graphics[width=.24\linewidth]{Amazon.jpeg}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: Amazon.jpeg Graphic file (type eps)
+<Amazon.jpeg>
+
+! LaTeX Error: Cannot determine size of graphic in FacebookBot.jpeg (no Boundin
+gBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 ...ics[width=.24\linewidth]{FacebookBot.jpeg}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: FacebookBot.jpeg Graphic file (type eps)
+<FacebookBot.jpeg>
+
+! LaTeX Error: Cannot determine size of graphic in IMG_9203.jpeg (no BoundingBo
+x).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...aphics[width=.24\linewidth]{IMG_9203.jpeg}
+                                                  \hfill
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: IMG_9203.jpeg Graphic file (type eps)
+<IMG_9203.jpeg>
+
+! LaTeX Error: Cannot determine size of graphic in IMG_9259.JPG (no BoundingBox
+).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 ...raphics[width=.24\linewidth]{IMG_9259.JPG}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: IMG_9259.JPG Graphic file (type eps)
+<IMG_9259.JPG>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 43.
+
+) [19]
 \openout2 = `riskAnalysis.aux'.
 
  (./riskAnalysis.tex
-Chapter 9.
+Chapter 8.
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 4.
 
-<riskTable.png, id=90, 615.29875pt x 550.055pt>
-File: riskTable.png Graphic file (type png)
- <use riskTable.png>
-Package pdftex.def Info: riskTable.png used on input line 8.
-(pdftex.def)             Requested size: 492.23967pt x 440.04459pt.
 
-Overfull \hbox (76.80815pt too wide) in paragraph at lines 7--10
-[][] 
+Overfull \hbox (39.74991pt too wide) in paragraph at lines 8--17
+ [][] 
  []
 
-) [19
+[20
 
 
 
-] [20 <./riskTable.png>]
-\openout2 = `developmentTimeline.aux'.
+] [21]
+Chapter 9.
+[22
 
- (./developmentTimeline.tex
+] [23]
 Chapter 10.
-<developmentTimeline.png, id=99, 723.1818pt x 253.9086pt>
-File: developmentTimeline.png Graphic file (type png)
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+[24
 
-<use developmentTimeline.png>
-Package pdftex.def Info: developmentTimeline.png used on input line 6.
-(pdftex.def)             Requested size: 723.18002pt x 253.90797pt.
+] [25]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+ [26]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+ [27]
+Chapter 11.
+) [28
+
+]
+\openout2 = `appendix.aux'.
+
+ (./appendix.tex
+Chapter 12.
+[29
 
 
-LaTeX Warning: Float too large for page by 12.665pt on input line 9.
-
-) [21
 
 
-
-] [22 <./developmentTimeline.png>] (./master.aux (./abstract.aux)
-(./introduction.aux) (./requirements.aux) (./useCases.aux)
-(./activityDiagrams.aux) (./technologiesUsed.aux) (./architectualDiagrams.aux)
-(./designRationale.aux) (./testPlan.aux) (./riskAnalysis.aux)
-(./developmentTimeline.aux))
+] [30]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ¶ in font cmss10!
+ [31] [32]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [33]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [34]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [35]
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ≤ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ≥ in font cmss8!
+Missing character: There is no √ in font cmss8!
+Missing character: There is no Ü in font cmss8!
+Missing character: There is no √ in font cmss8!
+Missing character: There is no ¶ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ¥ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no µ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ∂ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ∑ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ∏ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no π in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ∫ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ª in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no º in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no Ω in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ä in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no É in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ñ in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Å in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ç in font cmss8!
+Missing character: There is no ≈ in font cmss8!
+Missing character: There is no í in font cmss8!
+Missing character: There is no ≈ in font cmss8!
+Missing character: There is no ì in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ù in font cmss8!
+Missing character: There is no é in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ù in font cmss8!
+Missing character: There is no è in font cmss8!
+Missing character: There is no · in font cmss8!
+Missing character: There is no ∫ in font cmss8!
+Missing character: There is no û in font cmss8!
+Missing character: There is no √ in font cmss8!
+Missing character: There is no ü in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ü in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ö in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no ® in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ú in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no · in font cmss8!
+Missing character: There is no µ in font cmss8!
+Missing character: There is no ´ in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ù in font cmss8!
+Missing character: There is no † in font cmss8!
+Missing character: There is no Í in font cmss8!
+Missing character: There is no ù in font cmss8!
+Missing character: There is no ° in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ä in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no É in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ñ in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Å in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ç in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ü in font cmss8!
+Missing character: There is no Ô in font cmss8!
+Missing character: There is no ¨ in font cmss8!
+Missing character: There is no Ö in font cmss8!
+ [36]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [37]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [38] [39]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [40] [41] [42]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [43]
+[44]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+) [45] (./master.aux (./abstract.aux) (./introduction.aux)
+(./requirements.aux) (./useCases.aux) (./activityDiagrams.aux)
+(./architectualDiagrams.aux) (./designRationale.aux) (./testPlan.aux)
+(./riskAnalysis.aux) (./appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1924 strings out of 493014
- 27915 string characters out of 6133351
- 93358 words of memory out of 5000000
- 5367 multiletter control sequences out of 15000+600000
- 9119 words of font info for 32 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 37i,12n,25p,1103b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on master.pdf (28 pages, 443911 bytes).
-PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4463 strings out of 493305
+ 64911 string characters out of 6139897
+ 461932 words of memory out of 5000000
+ 7833 multiletter control sequences out of 15000+600000
+ 9664 words of font info for 34 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 42i,14n,40p,3896b,1575s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on master.dvi (52 pages, 483516 bytes).
