@@ -24,15 +24,15 @@ The interface of the backend is a simple set of HTTP endpoints which are summari
 
 \begin{table}[]
 \centering
-\caption{My caption}
-\label{my-label}
+\caption{PRAHVI API Endpoints}
+\label{PRAHVI_API_endpoints}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-\multicolumn{1}{|c|}{Endpoint}                  & \multicolumn{1}{c|}{Input}               & \multicolumn{1}{c|}{Output}                & \multicolumn{1}{c|}{HTTP METHOD} & \multicolumn{1}{c|}{Description}                                                   \\ \hline
-\textlessdomain\textgreater/api/v1/image/ocr3   & File: Image                              & JSON: \{ result: string \}                 & POST                             & Prahvi's image to text algorithm using tesseract 3                                 \\ \hline
-\textlessdomain\textgreater/api/v1/image/ocr4   & File: Image                              & JSON: \{ result: string \}                 & POST                             & Prahvi's image to text algorithm using tesseract 4                                 \\ \hline
-\textlessdomain\textgreater/api/v1/text/tfidf   & String                                   & JSON: \{ result: \{ term: score, ... \} \} & POST                             & Takes in a document string and outputs the scores of all the terms in the document \\ \hline
-\textlessdomain\textgreater/api/v1/text/compare & JSON: \{ text1: string, text2: string \} & JSON: \{ result: int{[}0, 1{]} \}          & POST                             & Returns a score of how similar the documents are.                                  \\ \hline
+\multicolumn{1}{|c|}{\textbf{Endpoint}} & \multicolumn{1}{c|}{\textbf{Input}}                                                   & \multicolumn{1}{c|}{\textbf{Output}}                                                                       & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}HTTP\\ METHOD\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Description}}                                                                                        \\ \hline
+/api/v1/image/ocr3                      & File: Image                                                                           & \begin{tabular}[c]{@{}l@{}}JSON: \\ \{ result:\\    string \}\end{tabular}                                 & POST                                                                                & \begin{tabular}[c]{@{}l@{}}PRAHVI's image to text\\ algorithm using tesseract 3\end{tabular}                                     \\ \hline
+/api/v1/image/ocr4                      & File: Image                                                                           & \begin{tabular}[c]{@{}l@{}}JSON: \\ \{ result:\\    string \}\end{tabular}                                 & POST                                                                                & \begin{tabular}[c]{@{}l@{}}PRAHVI's image to text\\ algorithm using tesseract 4\end{tabular}                                     \\ \hline
+/api/v1/text/tfidf                      & String                                                                                & \begin{tabular}[c]{@{}l@{}}JSON:\\ \{result: \\    \{ term:\\       score, \\       ... \} \}\end{tabular} & POST                                                                                & \begin{tabular}[c]{@{}l@{}}Takes in a document string \\ and outputs the scores of \\ all the terms in the document\end{tabular} \\ \hline
+/api/v1/text/compare                    & \begin{tabular}[c]{@{}l@{}}JSON: \\ \{ text1: string,\\ text2: string \}\end{tabular} & \begin{tabular}[c]{@{}l@{}}JSON:\\ \{ result: \\    int{[}0, 1{]} \}\end{tabular}                          & POST                                                                                & \begin{tabular}[c]{@{}l@{}}Returns a score of how\\ similar the documents are\end{tabular}                                       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -80,7 +80,7 @@ From the list of sorted contours, the biggest contour that can be approximated t
 The transformed text area is processed by the Tesseract OCR Engine to identify the bounding boxes of the text in the image and convert the image to computer encoded characters. The computer-encoded characters are then processed to extract key features and feedback to the user.
 
 \section{Text Summarization}
-In order to provide users with a summary of the extracted text we use an algorithm called Term Frequency-Inverse Document Frequency. (TFIDF) The reason why TFIDF was chosen for our text summary is because it's one of the more popular and well known term-weighting schemes, it's easy to implement, and once it's set up it is computationally fast.
+In order to provide users with a summary of the extracted text we use an algorithm called Term Frequency-Inverse Document Frequency.\footnotemark \footnotetext{http://www.tfidf.com/} ~(TFIDF) The reason why TFIDF was chosen for our text summary is because it's one of the more popular and well known term-weighting schemes, it's easy to implement, and once it's set up it is computationally fast.
 
 The goals of TFIDF are to obtain statistically important keywords from a text article. 
 
@@ -95,7 +95,7 @@ $tf(t, d) = 1$ if term $t$	is in Document $d$ else it's $0$
 $idf(t, D) = log(\frac{N}{|d \in D : t \in d|}$
 where,
 $N$ is the number of documents in the corpus $N = |D|$
-${|d \in D : t \in d|}$: number of documents where the term $t$ appears 
+${|d \in D : t \in d|}$: number of documents where the term $t$ appears.
 
 The rationale behind the TFIDF algorithm is to reduce the importance of words that appear often yet have no overall significance. Examples of such words are: the, and, is, etc.
 
