@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -168,7 +168,7 @@ Package color Info: Driver file: pdftex.def on input line 144.
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux)
-(/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+(/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/developmentTimeline.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 \openout1 = `master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -366,37 +366,52 @@ Overfull \hbox (2.2637pt too wide) in paragraph at lines 43--51
  [][] 
  []
 
-[10] <blur.jpg, id=67, 2258.4375pt x 3011.25pt>
+[10] <convolution.png, id=67, 726.715pt x 127.47626pt>
+File: convolution.png Graphic file (type png)
+ <use convolution.png>
+Package pdftex.def Info: convolution.png used on input line 74.
+(pdftex.def)             Requested size: 290.68085pt x 50.9896pt.
+ <blur.jpg, id=68, 2258.4375pt x 3011.25pt>
 File: blur.jpg Graphic file (type jpg)
  <use blur.jpg>
-Package pdftex.def Info: blur.jpg used on input line 76.
-(pdftex.def)             Requested size: 169.3755pt x 225.834pt.
- <laplacian_kernel.png, id=68, 86.3225pt x 67.25125pt>
+Package pdftex.def Info: blur.jpg used on input line 85.
+(pdftex.def)             Requested size: 128.23076pt x 170.9722pt.
+ <notblur.JPG, id=69, 3035.34pt x 4047.12pt>
+File: notblur.JPG Graphic file (type jpg)
+ <use notblur.JPG>
+Package pdftex.def Info: notblur.JPG used on input line 91.
+(pdftex.def)             Requested size: 128.23076pt x 170.93506pt.
+
+Overfull \hbox (4.44441pt too wide) in paragraph at lines 83--94
+ [][]  [] 
+ []
+
+<laplacian_kernel.png, id=70, 86.3225pt x 67.25125pt>
 File: laplacian_kernel.png Graphic file (type png)
  <use laplacian_kernel.png>
-Package pdftex.def Info: laplacian_kernel.png used on input line 84.
+Package pdftex.def Info: laplacian_kernel.png used on input line 101.
 (pdftex.def)             Requested size: 43.16113pt x 33.62553pt.
- <similar1.JPG, id=69, 3035.34pt x 4047.12pt>
+ [11 <./convolution.png>] <similar1.JPG, id=75, 3035.34pt x 4047.12pt>
 File: similar1.JPG Graphic file (type jpg)
  <use similar1.JPG>
-Package pdftex.def Info: similar1.JPG used on input line 95.
+Package pdftex.def Info: similar1.JPG used on input line 112.
 (pdftex.def)             Requested size: 170.97pt x 227.934pt.
- <similar2.JPG, id=70, 3035.34pt x 4047.12pt>
+ <similar2.JPG, id=76, 3035.34pt x 4047.12pt>
 File: similar2.JPG Graphic file (type jpg)
  <use similar2.JPG>
-Package pdftex.def Info: similar2.JPG used on input line 96.
+Package pdftex.def Info: similar2.JPG used on input line 113.
 (pdftex.def)             Requested size: 170.97pt x 227.934pt.
- <ImageProcess.png, id=71, 1034.86626pt x 347.2975pt>
+ <ImageProcess.png, id=77, 1034.86626pt x 347.2975pt>
 File: ImageProcess.png Graphic file (type png)
  <use ImageProcess.png>
-Package pdftex.def Info: ImageProcess.png used on input line 106.
+Package pdftex.def Info: ImageProcess.png used on input line 123.
 (pdftex.def)             Requested size: 413.93916pt x 138.91653pt.
- [11] [12 <./blur.jpg> <./laplacian_kernel.png (PNG copy)> <./similar1.JPG> <./similar2.JPG>] <gaussianBlur.png, id=79, 223.58531pt x 39.89906pt>
+ <gaussianBlur.png, id=78, 223.58531pt x 39.89906pt>
 File: gaussianBlur.png Graphic file (type png)
  <use gaussianBlur.png>
-Package pdftex.def Info: gaussianBlur.png used on input line 116.
+Package pdftex.def Info: gaussianBlur.png used on input line 133.
 (pdftex.def)             Requested size: 223.58475pt x 39.89894pt.
- [13 <./ImageProcess.png> <./gaussianBlur.png>] [14]) [15]
+ [12 <./blur.jpg> <./notblur.JPG> <./laplacian_kernel.png (PNG copy)>] [13 <./similar1.JPG> <./similar2.JPG> <./ImageProcess.png> <./gaussianBlur.png>] [14]) [15]
 \openout2 = `designRationale.aux'.
 
  (./designRationale.tex
@@ -421,22 +436,22 @@ Missing character: There is no ì in font cmss10!
 
 
 
-] <Amazon.jpeg, id=109, 1541.76pt x 2055.68pt>
+] <Amazon.jpeg, id=113, 1541.76pt x 2055.68pt>
 File: Amazon.jpeg Graphic file (type jpg)
  <use Amazon.jpeg>
 Package pdftex.def Info: Amazon.jpeg used on input line 31.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <FacebookBot.jpeg, id=110, 1541.76pt x 2055.68pt>
+ <FacebookBot.jpeg, id=114, 1541.76pt x 2055.68pt>
 File: FacebookBot.jpeg Graphic file (type jpg)
  <use FacebookBot.jpeg>
 Package pdftex.def Info: FacebookBot.jpeg used on input line 32.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <IMG_9203.jpeg, id=111, 2258.4375pt x 3011.25pt>
+ <IMG_9203.jpeg, id=115, 2258.4375pt x 3011.25pt>
 File: IMG_9203.jpeg Graphic file (type jpg)
  <use IMG_9203.jpeg>
 Package pdftex.def Info: IMG_9203.jpeg used on input line 33.
 (pdftex.def)             Requested size: 102.5859pt x 136.741pt.
- <IMG_9259.JPG, id=112, 3035.34pt x 4047.12pt>
+ <IMG_9259.JPG, id=116, 3035.34pt x 4047.12pt>
 File: IMG_9259.JPG Graphic file (type jpg)
  <use IMG_9259.JPG>
 Package pdftex.def Info: IMG_9259.JPG used on input line 34.
@@ -453,70 +468,101 @@ LaTeX Warning: No positions in optional float specifier.
 Chapter 7.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 4.
-
-
-Overfull \hbox (52.86116pt too wide) in paragraph at lines 8--17
- [][] 
- []
+               Default added (so using `tbp') on input line 6.
 
 [21
 
 
 
-] [22]
+]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 30.
+
+[22]
 Chapter 8.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 50.
+
+
+Overfull \hbox (52.86116pt too wide) in paragraph at lines 54--63
+ [][] 
+ []
+
 [23
 
 ] [24]
 Chapter 9.
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
+<developmentTimeline.png, id=133, 723.1818pt x 253.9086pt>
+File: developmentTimeline.png Graphic file (type png)
+ <use developmentTimeline.png>
+Package pdftex.def Info: developmentTimeline.png used on input line 70.
+(pdftex.def)             Requested size: 723.18002pt x 253.90797pt.
+
+
+LaTeX Warning: Float too large for page by 10.72055pt on input line 73.
+
 [25
 
-] [26]
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
- [27]
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ú in font cmss10!
-Missing character: There is no ‚ in font cmss10!
-Missing character: There is no Ä in font cmss10!
-Missing character: There is no ù in font cmss10!
- [28]
+] [26 <./developmentTimeline.png>]
 Chapter 10.
-) [29
+[27
+
+] [28]
+Chapter 11.
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+[29
+
+] [30]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+ [31]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+ [32]
+Chapter 12.
+) [33
 
 ]
+\openout2 = `developmentTimeline.aux'.
+
+ (./developmentTimeline.tex)
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
-Chapter 11.
-[30
+Chapter 13.
+[34
 
 
 
 
-] [31]
+
+
+] [35]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ¶ in font cmss10!
- [32] [33]
+ [36] [37]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 LaTeX Font Info:    Try loading font information for OML+cmss on input line 186.
@@ -527,19 +573,19 @@ LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
 (Font)              for symbol `textless' on input line 186.
 
-[34]
+[38]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [35]
+ [39]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [36]
+ [40]
 Missing character: There is no Í in font cmss8!
 Missing character: There is no ú in font cmss8!
 Missing character: There is no ≤ in font cmss8!
@@ -652,28 +698,31 @@ Missing character: There is no Ü in font cmss8!
 Missing character: There is no Ô in font cmss8!
 Missing character: There is no ¨ in font cmss8!
 Missing character: There is no Ö in font cmss8!
- [37]
+ [41]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [38]
+ [42]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [39] [40]
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
- [41] [42] [43]
+ [43] [44]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [44] [45]
+ [45] [46] [47]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [46]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [48] [49]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [50]
+Missing character: There is no √ in font cmss10!
+Missing character: There is no © in font cmss10!
+
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 950.
@@ -682,12 +731,12 @@ Missing character: There is no ‚ in font cmssi10!
 Missing character: There is no Ä in font cmssi10!
 Missing character: There is no î in font cmssi10!
 
-Underfull \hbox (badness 4713) in paragraph at lines 950--952
+Underfull \hbox (badness 4713) in paragraph at lines 952--954
 []\OT1/cmss/m/n/10 "AKAZE lo-cal fea-tures match-ing." \OT1/cmss/m/sl/10 AKAZE lo-cal fea-tures match-ing  OpenCV 3.0.0-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 950--952
+Underfull \hbox (badness 10000) in paragraph at lines 952--954
 \OT1/cmss/m/sl/10 dev doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017. \OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/3.0-
  []
 
@@ -695,7 +744,7 @@ Missing character: There is no ‚ in font cmssi10!
 Missing character: There is no Ä in font cmssi10!
 Missing character: There is no î in font cmssi10!
 
-Overfull \hbox (36.84705pt too wide) in paragraph at lines 953--955
+Overfull \hbox (36.84705pt too wide) in paragraph at lines 955--957
 \OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html?highlight=gaussianblur#gaussianblur\OML/cmss/m/n/10 >\OT1/cmss/m/n/10 . 
  []
 
@@ -703,17 +752,17 @@ Missing character: There is no ‚ in font cmssi10!
 Missing character: There is no Ä in font cmssi10!
 Missing character: There is no î in font cmssi10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--958
+Underfull \hbox (badness 10000) in paragraph at lines 958--960
 []\OT1/cmss/m/n/10 "Canny Edge De-tec-tor." \OT1/cmss/m/sl/10 Canny Edge De-tec-tor  OpenCV
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--958
+Underfull \hbox (badness 10000) in paragraph at lines 958--960
 \OT1/cmss/m/sl/10 2.4.13.2 doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
  []
 
 
-Overfull \hbox (14.88037pt too wide) in paragraph at lines 956--958
+Overfull \hbox (14.88037pt too wide) in paragraph at lines 958--960
 \OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/canny[]detector/canny[]detector.html\OML/cmss/m/n/10 >\OT1/cmss/m/n/10 . 
  []
 
@@ -721,22 +770,20 @@ Missing character: There is no ‚ in font cmssi10!
 Missing character: There is no Ä in font cmssi10!
 Missing character: There is no î in font cmssi10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 959--962
+Underfull \hbox (badness 10000) in paragraph at lines 961--964
 []\OT1/cmss/m/n/10 "Structural Anal-y-sis and Shape De-scrip-tors." \OT1/cmss/m/sl/10 Struc-tural Anal-y-sis and Shape De-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 959--962
+Underfull \hbox (badness 10000) in paragraph at lines 961--964
 \OT1/cmss/m/sl/10 scrip-tors  OpenCV 2.4.13.2 doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
  []
 
 
-Overfull \hbox (9.2192pt too wide) in paragraph at lines 959--962
+Overfull \hbox (9.2192pt too wide) in paragraph at lines 961--964
 \OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/modules/imgproc/doc/structural[]analysis[]and[]shape[]descriptors.html?
  []
 
-Missing character: There is no √ in font cmss10!
-Missing character: There is no © in font cmss10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 968--970
 []\OT1/cmss/m/n/10 Tesseract-ocr. "Tesseract-ocr/tesseract." \OT1/cmss/m/sl/10 GitHub\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
@@ -747,26 +794,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 971--973
 []\OT1/cmss/m/n/10 Tesseract-ocr. "Tesseract-ocr/tesseract." \OT1/cmss/m/sl/10 GitHub\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
  []
 
-) [47
+) [51
 
-] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/developmentTimeline.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5372 strings out of 493014
- 82100 string characters out of 6133351
+ 5401 strings out of 493014
+ 82875 string characters out of 6133351
  478380 words of memory out of 5000000
- 8777 multiletter control sequences out of 15000+600000
- 10020 words of font info for 35 fonts, out of 8000000 for 9000
+ 8796 multiletter control sequences out of 15000+600000
+ 10326 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,42p,1758b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (54 pages, 11055611 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (58 pages, 13763632 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 268 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

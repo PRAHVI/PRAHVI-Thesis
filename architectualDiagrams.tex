@@ -59,24 +59,41 @@ The interface of the backend is a simple set of HTTP endpoints which are summari
 \end{itemize}
 
 \section{System Flow}
-Once the camera captures the image and sends the image to the smart phone, the image will pass through the pre-processing stage to detect whether the image will be processed or not, based on the blurriness of the image and the similarity of the current image and the previous image (see Image Pre-processing for more information). Once the image has passed the pre-processing stage, it is also processed for text, which is stored in the smart phone. Access to text is by string, and different lines are separated by the new line character that is the same as the document captured. The text is then output as audio feedback as decided by the user (see Figure ).
+Once the camera captures the image and sends the image to the smart phone, the image will pass through the pre-processing stage to detect whether the image will be processed or not, based on the blurriness of the image and the similarity of the current image and the previous image (see Image Pre-processing for more information). Once the image has passed the pre-processing stage, it is also processed for text, which is stored in the smart phone. Access to text is by string, and different lines are separated by the new line character that is the same as the document captured. The text is then output as audio feedback as decided by the user.
 
 
 
 \section{Text Extraction}
 
 \subsection{Image Pre-processing}
-When the smart phone application receives the image, the image is then passed through 2 filters. The first filter detects the blurriness of the image. If the image is blurred, the phone will reject the image because it is hard to extract useful information from a blurred imaged. If the image passed the blurriness test, it will then be used to compare to the previous detected image for similarity. If the image is similar (or the same), the image will also be rejected, because the information from the same document is stored in the device from the previous capture. These 2 filters help to improve the efficiency of the system and save time waited by the user.
+When the smart phone application receives the image, the image is passed through two filters. The first filter detects the blurriness of the image as described below. If the image is blurred, which is determined by the smart phone application, it will be rejected because it is hard to extract useful information from a blurred imaged. If the image passes the blurriness test, it will then be compared to the previous detected image for similarity. If the image is similar (or the same), as determined by the smart phone application, the image will also be rejected, because the information from the same document is stored in the device from the previous capture. These 2 filters help to improve the efficiency of the system and save time waited by the user.
 
 \subsubsection{Blurriness Test}
-
-To test for blurriness, variance of Laplacian \cite{PechPacheco} is used. The image is treated as a 2-dimensional matrix (after grayscaled), and convolve it with the 3x3 Laplacian kernel (see Figure~\ref{laplacianKernel}). The variance of Laplacian is the variance of the response. The variance of Laplacian of the image is then compared to a threshold value (the threshold value used for this system is 50). If the variance of Laplacian of the image is lower than the threshold, then the image is blurred, otherwise, it is not.
 \begin{figure}
 	\centering
-    \includegraphics[scale = 0.075]{blur.jpg}
+    \includegraphics[scale = 0.4]{convolution.png}
     
-    \caption{Blurred image}
-	\label{blurredImage}
+    \caption{2-D Convolution Equation}
+	\label{convolution}
+\end{figure}
+To test for blurriness, variance of Laplacian \cite{PechPacheco} is used. The image is treated as a 2-dimensional matrix (after grayscaled), and convolve (see Figure~\ref{convolution}) it with the 3x3 Laplacian kernel (see Figure~\ref{laplacianKernel}). The variance of Laplacian is the variance of the response. The variance of Laplacian of the image is then compared to a threshold value (the threshold value used for this system is 50). If the variance of Laplacian of the image is lower than the threshold, then the image is blurred, otherwise, it is not.
+
+\begin{figure}
+  \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.6\linewidth]{blur.jpg}
+        \caption{Blurred image}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.6\linewidth]{notblur.JPG}
+        \caption{Not blurred image}
+    \end{subfigure}
+    
+    \caption{Blurred image \& not blurred image}
+	\label{blurrinessTest}
 \end{figure}
 
 \begin{figure}
@@ -108,7 +125,7 @@ The similarity test uses the accelerated-KAZE (AKAZE) local features matching \c
     \caption{Image Process Flow}
 	\label{imageProcessFlow}
 \end{figure}
-When the image passed the blurriness test and the similarity test, the system will try to detect the text area in the image and extract the text area. The extracted text area is then sent to the Tesseract Optical Character Recognition (OCR) Engine to convert the image to computer encoded characters. (see Figure~\ref{imageProcessFlow})
+When the image has passed the blurriness test and the similarity test, the system will try to detect the text area in the image and extract the text area as described below. The extracted text area is then sent to the Tesseract Optical Character Recognition (OCR) Engine to convert the image to computer encoded characters. (see Figure~\ref{imageProcessFlow})
 
 \subsubsection{Text Area Extraction}
 \begin{figure}
@@ -118,12 +135,16 @@ When the image passed the blurriness test and the similarity test, the system wi
     \caption{Gaussian Blur Equation}
 	\label{GaussianBlurEquation}
 \end{figure}
-To extract the text area, a copy of the image is first blurred (5x5 Gaussian Blur is used in implementation \cite{gaussianBlur}) to detect the edges in the image (Canny Edge Detection is used in implementation \cite{canny}). From the edges of the image, contours are then collected \cite{contours} from the connected edges and sorted in descending order based on their area.
+To extract the text area, a copy of the image is first blurred (5x5 Gaussian Blur is used in implementation \cite{gaussianBlur}) to reduce noise. Then detect the edges in the image (Canny Edge Detection is used in implementation \cite{canny} with threshold [0, 50]). The Canny edge detection has a low error rate, good localization and minimal response for the edges.
 
-From the list of sorted contours, the biggest contour that can be approximated to a quadrilateral is identified as the text area. The text area is then applied with a perspective transformation to convert the text area to a rectangle	 as if the document is scanned. This increases the accuracy of the result from Tesseract OCR Engine. 
+	Canny edge detection first filter out any noise, then find the intensity gradient of the image, apply non-maximum suppression, lastly hysteresis using the two thresholds.
+	
+From the edges of the image, contours are then collected \cite{contours} from the connected edges and sorted in descending order based on their area.
+
+From the list of sorted contours, the biggest contour that can be approximated by a quadrilateral is identified as the text area. The text area is applied to a perspective transformation to convert the text area to a rectangle	 to create uniform sized characters (See Figure~\ref{imageProcessFlow}-Extract Text Area). This increases the accuracy of the result from Tesseract OCR Engine. 
 
 \subsubsection{Text Detection}
-The transformed text area is processed by the Tesseract OCR Engine to identify the bounding boxes of the text in the image and convert the image to computer encoded characters. The computer-encoded characters are then processed to extract key features and feedback to the user.
+The transformed text area is processed by the Tesseract OCR Engine to identify the bounding boxes (See Figure~\ref{imageProcessFlow}-OCR) of the text in the image and convert the image to computer encoded characters. The computer-encoded characters are then processed to extract key features and feedback to the user. (See appendix for the original and detected sample testing documents.)
 
 \section{Text Summarization}
 In order to provide users with a summary of the extracted text we use an algorithm called Term Frequency-Inverse Document Frequency \cite{tfidf} ~(TFIDF). The reason why TFIDF was chosen for our text summary is because it's one of the more popular and well known term-weighting schemes, it's easy to implement, and once it's set up it is computationally fast.

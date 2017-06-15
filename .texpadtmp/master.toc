@@ -20,9 +20,9 @@
 \contentsline {section}{\numberline {4.7}Text Extraction}{11}
 \contentsline {subsection}{\numberline {4.7.1}Image Pre-processing}{11}
 \contentsline {subsubsection}{Blurriness Test}{11}
-\contentsline {subsubsection}{Similarity Test}{11}
-\contentsline {subsection}{\numberline {4.7.2}Image Processing}{13}
-\contentsline {subsubsection}{Text Area Extraction}{13}
+\contentsline {subsubsection}{Similarity Test}{12}
+\contentsline {subsection}{\numberline {4.7.2}Image Processing}{12}
+\contentsline {subsubsection}{Text Area Extraction}{14}
 \contentsline {subsubsection}{Text Detection}{14}
 \contentsline {section}{\numberline {4.8}Text Summarization}{14}
 \contentsline {chapter}{\numberline {5}Design Rationale}{16}
@@ -33,23 +33,27 @@
 \contentsline {subsection}{\numberline {6.1.1}Function Testing}{19}
 \contentsline {subsection}{\numberline {6.1.2}System Testing}{19}
 \contentsline {subsubsection}{Performance}{19}
-\contentsline {chapter}{\numberline {7}Risk Analysis}{21}
-\contentsline {chapter}{\numberline {8}Ethical Analysis}{23}
-\contentsline {chapter}{\numberline {9}Sustainability}{25}
-\contentsline {chapter}{\numberline {10}Conclusion}{29}
-\contentsline {chapter}{\numberline {11}Appendix}{30}
-\contentsline {section}{\numberline {11.1}Sample Testing Documents}{30}
-\contentsline {subsection}{\numberline {11.1.1}Can Amazon's assistant stay on top?}{30}
-\contentsline {subsubsection}{Original Text}{30}
-\contentsline {subsubsection}{Detected Text}{31}
-\contentsline {subsection}{\numberline {11.1.2}Dubai becomes first city to get its own Microsoft font}{31}
-\contentsline {subsubsection}{Original Text}{31}
-\contentsline {subsubsection}{Detected Text}{32}
-\contentsline {subsection}{\numberline {11.1.3}FCC website 'targeted by attack' after John Oliver comments}{32}
-\contentsline {subsubsection}{Original Text}{32}
-\contentsline {subsubsection}{Detected Text}{33}
-\contentsline {section}{\numberline {11.2}Code}{34}
-\contentsline {subsection}{\numberline {11.2.1}Raspberry Pi}{34}
-\contentsline {subsection}{\numberline {11.2.2}Smart Phone Application}{34}
-\contentsline {subsection}{\numberline {11.2.3}Server}{34}
-\contentsline {subsubsection}{Text Extraction}{34}
+\contentsline {chapter}{\numberline {7}Development \& Manufacture Costs}{21}
+\contentsline {section}{\numberline {7.1}Development Cost}{21}
+\contentsline {section}{\numberline {7.2}Manufacture Cost}{22}
+\contentsline {chapter}{\numberline {8}Risk Analysis}{23}
+\contentsline {chapter}{\numberline {9}Development Timeline}{25}
+\contentsline {chapter}{\numberline {10}Ethical Analysis}{27}
+\contentsline {chapter}{\numberline {11}Sustainability}{29}
+\contentsline {chapter}{\numberline {12}Conclusion}{33}
+\contentsline {chapter}{\numberline {13}Appendix}{34}
+\contentsline {section}{\numberline {13.1}Sample Testing Documents}{34}
+\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{34}
+\contentsline {subsubsection}{Original Text}{34}
+\contentsline {subsubsection}{Detected Text}{35}
+\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{35}
+\contentsline {subsubsection}{Original Text}{35}
+\contentsline {subsubsection}{Detected Text}{36}
+\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{36}
+\contentsline {subsubsection}{Original Text}{36}
+\contentsline {subsubsection}{Detected Text}{37}
+\contentsline {section}{\numberline {13.2}Code}{38}
+\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{38}
+\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{38}
+\contentsline {subsection}{\numberline {13.2.3}Server}{38}
+\contentsline {subsubsection}{Text Extraction}{38}

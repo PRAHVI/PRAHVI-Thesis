@@ -5,15 +5,19 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces High Level View\relax }}{8}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Architectural Diagram\relax }}{9}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Blurred image\relax }}{12}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The Laplacian kernel\relax }}{12}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Similar Images\relax }}{12}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Image Process Flow\relax }}{13}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Gaussian Blur Equation\relax }}{13}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 2-D Convolution Equation\relax }}{11}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Blurred image \& not blurred image\relax }}{12}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The Laplacian kernel\relax }}{12}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Similar Images\relax }}{13}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Image Process Flow\relax }}{13}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Gaussian Blur Equation\relax }}{13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Testing images gathered during System Testing\relax }}{20}
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Development Timeline\relax }}{26}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
