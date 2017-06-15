@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -167,8 +167,8 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 144.
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux)
-(/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/testPlan.aux)
+(/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 \openout1 = `master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -247,20 +247,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  (./abstract.tex [3
 
-]) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.toc [4
+]) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.toc [4
 
 
 ])
 \tf@toc=\write3
 \openout3 = `master.toc'.
 
- [5] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.lof)
+ [5] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.lof)
 \tf@lof=\write4
 \openout4 = `master.lof'.
 
  [6
 
-] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.lot)
+] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.lot)
 \tf@lot=\write5
 \openout5 = `master.lot'.
 
@@ -300,9 +300,9 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 
 ] [4]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 33.
+(Font)              <8> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 33.
+(Font)              <6> on input line 31.
 ) [5]
 \openout2 = `useCases.aux'.
 
@@ -335,7 +335,23 @@ Overfull \hbox (6.2109pt too wide) in paragraph at lines 30--40
 
  (./architectualDiagrams.tex
 Chapter 4.
-<Activity_H.png, id=54, 4155.525pt x 1410.26875pt>
+<PRAHVI-Block.png, id=54, 1140.26pt x 664.4825pt>
+File: PRAHVI-Block.png Graphic file (type png)
+ <use PRAHVI-Block.png>
+Package pdftex.def Info: PRAHVI-Block.png used on input line 3.
+(pdftex.def)             Requested size: 456.09592pt x 265.78828pt.
+
+Overfull \hbox (28.66438pt too wide) in paragraph at lines 3--4
+[] 
+ []
+
+[8
+
+
+
+
+
+ <./PRAHVI-Block.png>] <Activity_H.png, id=59, 4155.525pt x 1410.26875pt>
 File: Activity_H.png Graphic file (type png)
  <use Activity_H.png>
 Package pdftex.def Info: Activity_H.png used on input line 10.
@@ -345,79 +361,83 @@ Overfull \hbox (8.87978pt too wide) in paragraph at lines 10--11
  [][] 
  []
 
-<ArchitectureDiagram.png, id=55, 1578.89874pt x 678.535pt>
-File: ArchitectureDiagram.png Graphic file (type png)
- <use ArchitectureDiagram.png>
-Package pdftex.def Info: ArchitectureDiagram.png used on input line 20.
-(pdftex.def)             Requested size: 315.77415pt x 135.70459pt.
- [8
+[9 <./Activity_H.png>] <PRAHVI-HEADSET.png, id=64, 464.73625pt x 314.17375pt>
+File: PRAHVI-HEADSET.png Graphic file (type png)
+ <use PRAHVI-HEADSET.png>
+Package pdftex.def Info: PRAHVI-HEADSET.png used on input line 23.
+(pdftex.def)             Requested size: 278.84389pt x 188.50569pt.
+ [10 <./PRAHVI-HEADSET.png>] <PRAHVI-UI.png, id=69, 560.0925pt x 263.98625pt>
+File: PRAHVI-UI.png Graphic file (type png)
+ <use PRAHVI-UI.png>
+Package pdftex.def Info: PRAHVI-UI.png used on input line 33.
+(pdftex.def)             Requested size: 336.05809pt x 158.39296pt.
 
-
-
-
-
- <./Activity_H.png>] [9 <./ArchitectureDiagram.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 39.
+               Default added (so using `tbp') on input line 43.
 
 
-Overfull \hbox (2.2637pt too wide) in paragraph at lines 43--51
+Overfull \hbox (2.2637pt too wide) in paragraph at lines 47--55
  [][] 
  []
 
-[10]
+[11 <./PRAHVI-UI.png>] [12]
 Missing character: There is no √ in font cmss8!
 Missing character: There is no © in font cmss8!
- <blur.jpg, id=67, 2258.4375pt x 3011.25pt>
+ <blur.jpg, id=77, 2258.4375pt x 3011.25pt>
 File: blur.jpg Graphic file (type jpg)
  <use blur.jpg>
-Package pdftex.def Info: blur.jpg used on input line 76.
+Package pdftex.def Info: blur.jpg used on input line 80.
 (pdftex.def)             Requested size: 169.3755pt x 225.834pt.
- <laplacian_kernel.png, id=68, 86.3225pt x 67.25125pt>
+ <laplacian_kernel.png, id=78, 86.3225pt x 67.25125pt>
 File: laplacian_kernel.png Graphic file (type png)
  <use laplacian_kernel.png>
-Package pdftex.def Info: laplacian_kernel.png used on input line 84.
+Package pdftex.def Info: laplacian_kernel.png used on input line 88.
 (pdftex.def)             Requested size: 43.16113pt x 33.62553pt.
- <similar1.JPG, id=69, 3035.34pt x 4047.12pt>
+ <similar1.JPG, id=79, 3035.34pt x 4047.12pt>
 File: similar1.JPG Graphic file (type jpg)
  <use similar1.JPG>
-Package pdftex.def Info: similar1.JPG used on input line 95.
+Package pdftex.def Info: similar1.JPG used on input line 99.
 (pdftex.def)             Requested size: 170.97pt x 227.934pt.
- <similar2.JPG, id=70, 3035.34pt x 4047.12pt>
+ <similar2.JPG, id=80, 3035.34pt x 4047.12pt>
 File: similar2.JPG Graphic file (type jpg)
  <use similar2.JPG>
-Package pdftex.def Info: similar2.JPG used on input line 96.
+Package pdftex.def Info: similar2.JPG used on input line 100.
 (pdftex.def)             Requested size: 170.97pt x 227.934pt.
- <ImageProcess.png, id=71, 1034.86626pt x 347.2975pt>
+ <ImageProcess.png, id=81, 1034.86626pt x 347.2975pt>
 File: ImageProcess.png Graphic file (type png)
  <use ImageProcess.png>
-Package pdftex.def Info: ImageProcess.png used on input line 106.
+Package pdftex.def Info: ImageProcess.png used on input line 110.
 (pdftex.def)             Requested size: 413.93916pt x 138.91653pt.
- [11] [12 <./blur.jpg> <./laplacian_kernel.png (PNG copy)> <./similar1.JPG> <./similar2.JPG>] <gaussianBlur.png, id=79, 223.58531pt x 39.89906pt>
+ [13] [14 <./blur.jpg> <./laplacian_kernel.png (PNG copy)> <./similar1.JPG> <./similar2.JPG>] <gaussianBlur.png, id=88, 223.58531pt x 39.89906pt>
 File: gaussianBlur.png Graphic file (type png)
  <use gaussianBlur.png>
-Package pdftex.def Info: gaussianBlur.png used on input line 116.
+Package pdftex.def Info: gaussianBlur.png used on input line 120.
 (pdftex.def)             Requested size: 223.58475pt x 39.89894pt.
 
-Overfull \hbox (70.65692pt too wide) in paragraph at lines 121--121
+Overfull \hbox (70.65692pt too wide) in paragraph at lines 125--125
 [][]\OT1/cmss/m/n/8 http://docs.opencv.org/2.4/modules/imgproc/doc/structural[]analysis[]and[]shape[]descriptors.html?highlight=findcontours#findcontours| 
  []
 
-[13 <./ImageProcess.png> <./gaussianBlur.png>] [14]) [15]
+[15 <./ImageProcess.png> <./gaussianBlur.png>]) [16] [17]
 \openout2 = `designRationale.aux'.
 
  (./designRationale.tex
 Chapter 5.
-[16
+
+Overfull \hbox (1.64847pt too wide) in paragraph at lines 13--14
+\OT1/cmss/m/n/10 en-tirely through hap-tic and au-di-ble feed-back. The user in-ter-face is de-lib-er-ately "stripped-
+ []
+
+[18
 
 
 
-]
+] [19]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ô in font cmss10!
- [17]) [18]
+ [20]) [21]
 \openout2 = `testPlan.aux'.
 
  (./testPlan.tex
@@ -425,26 +445,26 @@ Chapter 6.
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ì in font cmss10!
-[19
+[22
 
 
 
-] <Amazon.jpeg, id=109, 1541.76pt x 2055.68pt>
+] <Amazon.jpeg, id=121, 1541.76pt x 2055.68pt>
 File: Amazon.jpeg Graphic file (type jpg)
  <use Amazon.jpeg>
 Package pdftex.def Info: Amazon.jpeg used on input line 31.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <FacebookBot.jpeg, id=110, 1541.76pt x 2055.68pt>
+ <FacebookBot.jpeg, id=122, 1541.76pt x 2055.68pt>
 File: FacebookBot.jpeg Graphic file (type jpg)
  <use FacebookBot.jpeg>
 Package pdftex.def Info: FacebookBot.jpeg used on input line 32.
 (pdftex.def)             Requested size: 102.5859pt x 136.7606pt.
- <IMG_9203.jpeg, id=111, 2258.4375pt x 3011.25pt>
+ <IMG_9203.jpeg, id=123, 2258.4375pt x 3011.25pt>
 File: IMG_9203.jpeg Graphic file (type jpg)
  <use IMG_9203.jpeg>
 Package pdftex.def Info: IMG_9203.jpeg used on input line 33.
 (pdftex.def)             Requested size: 102.5859pt x 136.741pt.
- <IMG_9259.JPG, id=112, 3035.34pt x 4047.12pt>
+ <IMG_9259.JPG, id=124, 3035.34pt x 4047.12pt>
 File: IMG_9259.JPG Graphic file (type jpg)
  <use IMG_9259.JPG>
 Package pdftex.def Info: IMG_9259.JPG used on input line 34.
@@ -454,7 +474,7 @@ Package pdftex.def Info: IMG_9259.JPG used on input line 34.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 43.
 
-) [20 <./Amazon.jpeg> <./FacebookBot.jpeg> <./IMG_9203.jpeg> <./IMG_9259.JPG>]
+) [23 <./Amazon.jpeg> <./FacebookBot.jpeg> <./IMG_9203.jpeg> <./IMG_9259.JPG>]
 \openout2 = `riskAnalysis.aux'.
 
  (./riskAnalysis.tex
@@ -468,15 +488,15 @@ Overfull \hbox (42.8889pt too wide) in paragraph at lines 8--17
  [][] 
  []
 
-[21
+[24
 
 
 
-] [22]
+] [25]
 Chapter 8.
-[23
+[26
 
-] [24]
+] [27]
 Chapter 9.
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
@@ -484,16 +504,16 @@ Missing character: There is no ú in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
-[25
+[28
 
-] [26]
+] [29]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ú in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
- [27]
+ [30]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ú in font cmss10!
@@ -506,48 +526,58 @@ Missing character: There is no ú in font cmss10!
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
- [28]
+ [31]
 Chapter 10.
-) [29
+) [32
 
 ]
 \openout2 = `appendix.aux'.
 
  (./appendix.tex
 Chapter 11.
-[30
+<PRAHVI-HARDWARE.png, id=157, 548.0475pt x 292.09125pt>
+File: PRAHVI-HARDWARE.png Graphic file (type png)
+ <use PRAHVI-HARDWARE.png>
+Package pdftex.def Info: PRAHVI-HARDWARE.png used on input line 5.
+(pdftex.def)             Requested size: 328.83104pt x 175.25609pt.
+ <ui.jpeg, id=158, 752.8125pt x 1339.0025pt>
+File: ui.jpeg Graphic file (type jpg)
+ <use ui.jpeg>
+Package pdftex.def Info: ui.jpeg used on input line 12.
+(pdftex.def)             Requested size: 150.55983pt x 267.79576pt.
+ [33
 
 
 
 
-] [31]
+] [34 <./PRAHVI-HARDWARE.png> <./ui.jpeg>] [35]
 Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ¶ in font cmss10!
- [32] [33]
+ [36] [37]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
-LaTeX Font Info:    Try loading font information for OML+cmss on input line 186.
-LaTeX Font Info:    No file OMLcmss.fd. on input line 186.
+LaTeX Font Info:    Try loading font information for OML+cmss on input line 200.
+LaTeX Font Info:    No file OMLcmss.fd. on input line 200.
 
 
 LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textless' on input line 186.
+(Font)              for symbol `textless' on input line 200.
 
-[34]
+[38]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [35]
+ [39]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [36]
+ [40]
 Missing character: There is no Í in font cmss8!
 Missing character: There is no ú in font cmss8!
 Missing character: There is no ≤ in font cmss8!
@@ -660,45 +690,45 @@ Missing character: There is no Ü in font cmss8!
 Missing character: There is no Ô in font cmss8!
 Missing character: There is no ¨ in font cmss8!
 Missing character: There is no Ö in font cmss8!
- [37]
+ [41]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [38]
+ [42]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [39] [40]
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
-Missing character: There is no ¬ in font cmss8!
-Missing character: There is no © in font cmss8!
- [41] [42] [43]
+ [43] [44]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
- [44] [45]
+ [45] [46] [47]
 Missing character: There is no ¬ in font cmss8!
 Missing character: There is no © in font cmss8!
-) [46] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+ [48] [49]
+Missing character: There is no ¬ in font cmss8!
+Missing character: There is no © in font cmss8!
+) [50] (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5360 strings out of 493014
- 81964 string characters out of 6133351
+ 5384 strings out of 493014
+ 82640 string characters out of 6133351
  478380 words of memory out of 5000000
- 8766 multiletter control sequences out of 15000+600000
+ 8785 multiletter control sequences out of 15000+600000
  9664 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,42p,1758b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (53 pages, 11038132 bytes).
+Output written on /Users/blaketsuzaki/Development/PRAHVI-Thesis/.texpadtmp/master.pdf (57 pages, 12394327 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 258 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

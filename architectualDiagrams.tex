@@ -1,9 +1,9 @@
 \chapter{Architecture}
 
-\section{High Level}
-Figure~\ref{activityDiagram} is the high level view of the system that shows the flow of actions of the user.
-During each decision stage, the system will prompt the user for actions.
+\includegraphics[scale = 0.4]{PRAHVI-Block.png}
 
+\section{Activity Diagram}
+Figure~\ref{activityDiagram} is the high level data-flow architecture of the system that shows the flow of actions of the user. Input is first received by the system to begin capturing an image of the user's immediate gaze, or view, in front of them. The system then evaluates the image and notifies the user if the image needs to be recaptured because it is too blurry or the text is illegible. If the image passes this evaluation, the system then translates the image into text and generates a summary for the user. This summary is then read aloud to the user. If the user takes no action at this point, the system proceeds to reading the entire text article. This architecture was chosen because there are constant inputs received by the system, and the inputs in general goes through the same route within the system. The data-flow architecture also has build-in concurrency, which can speeds up the process, especially the platform in which the product is embedded.
 
 \begin{figure}
 	\centering
@@ -13,23 +13,27 @@ During each decision stage, the system will prompt the user for actions.
 	\label{activityDiagram}
 \end{figure}
 
-\section{Architectural Diagram}
-This system has a data-flow architecture (see Figure~\ref{architectualDiagram}) that starts from "Headset" and moves clock-wise to "Audio." This architecture was chosen because there are constant inputs received by the system, and the inputs in general goes through the same route within the system. The data-flow architecture also has build-in concurrency, which can speeds up the process, especially the platform in which the product is embedded.
+\section{Hardware}
+The most visible component of PRAHVI is its wearable headset device that attaches to a typical pair of glasses or can be manufactured as a single assembly. The headset (shown in appendix \ref{headsetPic}) is comprised of a Raspberry Pi Zero board coupled with a standard Raspberry Pi Camera. The Raspberry Pi Zero was chosen for its low power consumption, small footprint, and its UNIX-based operating system allows for wide application flexibility. This means that the Raspberry Pi Zero allows us to cut down on the device's size and weight while creating an extensible application platform. Its main shortcoming, processor speed, is mitigated by the fact we use a smartphone and external server to process the images. The Raspberry Pi Camera is a module comprised of a breakout board and a 5.0 megapixel smartphone camera. The cable used to connect the camera to the Raspberry Pi Zero is a standard accessory cable used by many third-party accessories. The modular nature of these parts allows for future expansion and easy repairs for the user and for other developers. 
+
+When the device is connected to the user's smartphone and the accompanying app is opened, PRAHVI powers up and immediately begins communicating with the smartphone. Once the initial setup is completed, the headset waits for a trigger from the user to begin capturing images of the user's surroundings. Once this is triggered, the camera begins capturing a set of images which are added to a frame capture queue and used to adjust the camera settings, such as white balance and exposure, to achieve an optimal capture. An image sample is then served over the bridge created using the PRAHVI Open Protocol back to the smartphone. PRAHVI Open Protocol, or "POP," is a socket-oriented connection protocol based on the open source Bonjour networking standard.\footnote{https://developer.apple.com/bonjour/} Although the protocol is implemented for iOS and Python for this product, the protocol can be implemented on any platform or system that supports network sockets. These technologies and systems were ultimately employed to make using PRAHVI, from the moment the user connects the device, to the point the user requests a translation, as seamless and intuitive as possible from an ergonomics standpoint.
+
 \begin{figure}
 	\centering
-    \includegraphics[scale = 0.2]{ArchitectureDiagram.png}
-    
-    \caption{Architectural Diagram}
-	\label{architectualDiagram}
+	\includegraphics[scale = 0.6]{PRAHVI-HEADSET}
+	\caption{Hardware Diagram}
+	\label{headsetDiagram}
 \end{figure}
 
-\section{Hardware Interface}
-PRAHVI, itself, is a wearable headset device that attaches to a typical pair of glasses or can be manufactured as a single assembly. PRAHVI is comprised of a Raspberry Pi Zero compute board coupled with a standard Raspberry Pi Camera.
-
-The modular nature of these parts allows for future expansion and easy repairs for the user and for other developers. The Raspberry Pi Zero, in particular, was chosen for its low power consumption and wide application flexibility. Once the device is connected to the user's smartphone and the accompanying app is opened, PRAHVI powers up and immediately begins communicating with the smartphone.
-
 \section{User Interface}
-The user interface of PRAHVI is mainly comprised of a gesture pad that allows for text translation and navigation with minimal use of visual and audible cues. Once the user connects the headset and opens the app, PRAHVI immediately begins scanning the environment, adjusting the camera parameters to find a set point that produces a clear, usable image. Swiping the gesture area allows the user to navigate the text in realtime, with the smartphone providing haptic feedback. Tapping the gesture area starts the translation process, as PRAHVI captures an image and sends the image to the backend, before signaling to the user a quick summary (see Text Summarization section for more information) of the text and then a full translation.
+The user interface of PRAHVI is designed to operate entirely using haptic feedback and voice to simplify interaction and make text translation seamless. For this product, an app was written on the iOS platform to communicate with the headset device. The app (shown in \ref{uipicture}) is mainly comprised of a gesture pad that spans three fourths of the entire surface of the phone screen. Once the user connects the headset and opens the app, PRAHVI immediately connects to the app to set up the POP connection. When the user double taps the gesture area, the device begins scanning the environment, adjusting the camera parameters to find a set point that produces clear, usable images. From this queue, an image is selected using image acceptance algorithms and sent to the backend for translation. Once the translation is complete, the app stores the translated text into a cache and signals to the user a quick summary (see Text Summarization section for more information) of the text before proceeding with a full translation. Swiping the gesture area allows the user to navigate the text in realtime, with the smartphone providing haptic feedback. The user primarily interacts with the app to begin translation, proceed from the summary to the full translation, and navigate the translation. By using sound and touch as the primary modes of communication for the user interface, much of the interface could actually be removed, simplifying the experience for users.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.6]{PRAHVI-UI.png}
+	\caption{User Interface Diagram}
+	\label{uiDiagram}
+\end{figure}
 
 \section{Backend}
 The backend of PRAHVI is a flask web application. It exposes all the functionality related to the computer vision, optical character recognition, and text summary into a an easy web interface for our iPhone application to use.
