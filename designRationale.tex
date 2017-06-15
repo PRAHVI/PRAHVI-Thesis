@@ -4,23 +4,22 @@
 		\begin{itemize}
 			\item Hardware
 			\begin{itemize}
-				\item Wired video module to the phone
+				\item Wired Headset Device Form Factor
 				\begin{itemize}
-					\item Low-Latency, and therefore improving the system's responsiveness when providing feedback to user
+					\item Although many consumer electronics are moving to wireless form factors, the wired headset form factor was chosen to deliver a better experience that fits this unique set of users' needs. In particular, we focused on the areas of latency and usability. The wearable form factor was chosen because it best fit the use cases that users are presented with when translating text. This means that the headset is readily available and in-position for the user to translate text upon request. Utilizing a wired form factor ensures that there is no latency or ambiguity in setting up the connection and communicating from the device to the smartphone. A wired form-factor also potentially eliminates the need for the user to maintain knowledge of a secondary battery or configure their device to pair with the smartphone.
 				\end{itemize}
-				\item Choice of Haptics + Sonics Feedback
+				\item Haptic and Audible User interface
 				\begin{itemize}
-					\item Haptics allow us to better communicate spatial information regarding their gaze and important text or a user's text of interest
-					\item Sonics are natural way of communicating textual information to a user
+					\item The smartphone application that accompanies the device communicates with the user entirely through haptic and audible feedback. The user interface is deliberately "stripped-down" to its singular component, the gesture area. The user double-taps to begin the translation process, single-taps to pause or start a dictation, and swipe to navigate. This product must appeal to people with a sliding scale of blindness, some with varying conditions that warrant a user interface that can appeal to the lowest common denominator.
 				\end{itemize}
 			\end{itemize}
 
 
 			\item Software
 			\begin{itemize}
-				\item Image processing before Optical Character Recognition
+				\item Image preprocessing before Optical Character Recognition
 				\begin{itemize}
-					\item Current Tesseract OCR Engine does poorly with skewed text, and therefore the image processing allows us to deskew the image as best as possible to improve performance of the OCR engine.
+					\item The current Tesseract OCR Engine operates poorly with images that contain skewed text or visual artifacts. To improve on the overall accuracy of the system, preprocessing is employed to detect blur and visual artifacts while deskewing the image as best as possible to improve performance of the OCR engine.
 				\end{itemize}
 			\end{itemize}
 		\end{itemize}
