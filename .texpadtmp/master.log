@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 17:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -366,10 +366,7 @@ Overfull \hbox (2.2637pt too wide) in paragraph at lines 43--51
  [][] 
  []
 
-[10]
-Missing character: There is no Ã in font cmss8!
-Missing character: There is no © in font cmss8!
- <blur.jpg, id=67, 2258.4375pt x 3011.25pt>
+[10] <blur.jpg, id=67, 2258.4375pt x 3011.25pt>
 File: blur.jpg Graphic file (type jpg)
  <use blur.jpg>
 Package pdftex.def Info: blur.jpg used on input line 76.
@@ -399,12 +396,7 @@ File: gaussianBlur.png Graphic file (type png)
  <use gaussianBlur.png>
 Package pdftex.def Info: gaussianBlur.png used on input line 116.
 (pdftex.def)             Requested size: 223.58475pt x 39.89894pt.
-
-Overfull \hbox (70.65692pt too wide) in paragraph at lines 121--121
-[][]\OT1/cmss/m/n/8 http://docs.opencv.org/2.4/modules/imgproc/doc/structural[]analysis[]and[]shape[]descriptors.html?highlight=findcontours#findcontours| 
- []
-
-[13 <./ImageProcess.png> <./gaussianBlur.png>] [14]) [15]
+ [13 <./ImageProcess.png> <./gaussianBlur.png>] [14]) [15]
 \openout2 = `designRationale.aux'.
 
  (./designRationale.tex
@@ -464,7 +456,7 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 4.
 
 
-Overfull \hbox (42.8889pt too wide) in paragraph at lines 8--17
+Overfull \hbox (52.86116pt too wide) in paragraph at lines 8--17
  [][] 
  []
 
@@ -681,24 +673,100 @@ Missing character: There is no © in font cmss8!
  [44] [45]
 Missing character: There is no Â in font cmss8!
 Missing character: There is no © in font cmss8!
-) [46] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
+ [46]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 950.
+
+Missing character: There is no â in font cmssi10!
+Missing character: There is no € in font cmssi10!
+Missing character: There is no ” in font cmssi10!
+
+Underfull \hbox (badness 4713) in paragraph at lines 950--952
+[]\OT1/cmss/m/n/10 "AKAZE lo-cal fea-tures match-ing." \OT1/cmss/m/sl/10 AKAZE lo-cal fea-tures match-ing  OpenCV 3.0.0-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 950--952
+\OT1/cmss/m/sl/10 dev doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017. \OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/3.0-
+ []
+
+Missing character: There is no â in font cmssi10!
+Missing character: There is no € in font cmssi10!
+Missing character: There is no ” in font cmssi10!
+
+Overfull \hbox (36.84705pt too wide) in paragraph at lines 953--955
+\OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html?highlight=gaussianblur#gaussianblur\OML/cmss/m/n/10 >\OT1/cmss/m/n/10 . 
+ []
+
+Missing character: There is no â in font cmssi10!
+Missing character: There is no € in font cmssi10!
+Missing character: There is no ” in font cmssi10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 956--958
+[]\OT1/cmss/m/n/10 "Canny Edge De-tec-tor." \OT1/cmss/m/sl/10 Canny Edge De-tec-tor  OpenCV
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 956--958
+\OT1/cmss/m/sl/10 2.4.13.2 doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
+ []
+
+
+Overfull \hbox (14.88037pt too wide) in paragraph at lines 956--958
+\OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/canny[]detector/canny[]detector.html\OML/cmss/m/n/10 >\OT1/cmss/m/n/10 . 
+ []
+
+Missing character: There is no â in font cmssi10!
+Missing character: There is no € in font cmssi10!
+Missing character: There is no ” in font cmssi10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 959--962
+[]\OT1/cmss/m/n/10 "Structural Anal-y-sis and Shape De-scrip-tors." \OT1/cmss/m/sl/10 Struc-tural Anal-y-sis and Shape De-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 959--962
+\OT1/cmss/m/sl/10 scrip-tors  OpenCV 2.4.13.2 doc-u-men-ta-tion\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
+ []
+
+
+Overfull \hbox (9.2192pt too wide) in paragraph at lines 959--962
+\OML/cmss/m/n/10 <\OT1/cmss/m/n/10 http://docs.opencv.org/2.4/modules/imgproc/doc/structural[]analysis[]and[]shape[]descriptors.html?
+ []
+
+Missing character: There is no Ã in font cmss10!
+Missing character: There is no © in font cmss10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 968--970
+[]\OT1/cmss/m/n/10 Tesseract-ocr. "Tesseract-ocr/tesseract." \OT1/cmss/m/sl/10 GitHub\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 971--973
+[]\OT1/cmss/m/n/10 Tesseract-ocr. "Tesseract-ocr/tesseract." \OT1/cmss/m/sl/10 GitHub\OT1/cmss/m/n/10 . N.p., n.d. Web. 14 June 2017.
+ []
+
+) [47
+
+] (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.aux (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/abstract.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/introduction.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/requirements.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/useCases.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/activityDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/architectualDiagrams.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/designRationale.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/testPlan.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/riskAnalysis.aux) (/Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/appendix.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5360 strings out of 493014
- 81964 string characters out of 6133351
+ 5372 strings out of 493014
+ 82100 string characters out of 6133351
  478380 words of memory out of 5000000
- 8766 multiletter control sequences out of 15000+600000
- 9664 words of font info for 34 fonts, out of 8000000 for 9000
+ 8777 multiletter control sequences out of 15000+600000
+ 10020 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,42p,1758b,1753s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (53 pages, 11038132 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on /Users/Youngestyle/GitHub/PRAHVI-Thesis/.texpadtmp/master.pdf (54 pages, 11055611 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 246 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
