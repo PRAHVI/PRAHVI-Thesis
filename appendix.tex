@@ -186,7 +186,2105 @@ University of Sussex. told the fie.
 
 \subsection{Smart Phone Application}
 
+\begin{lstlisting}
+//
+//  AppDelegate.swift
+//  PRAHVI-iOS
+//
+//  Created by Abe Millan on 5/1/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+struct BridgeGlobal {
+    static let bridgeCoordinator = BridgeCoordinator()
+    static let pv = prahviWrapper()
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        BridgeGlobal.bridgeCoordinator.startCommunication()
+        
+        return true
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  Bridge.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 2/16/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import Foundation
+import CocoaAsyncSocket
+
+public protocol BridgeDelegate {
+    func didPrintDebugMessage(object: BridgeDebugMessage)
+    func bridgeDidConnect(bridge: Bridge)
+    func bridgeDidDisconnect(bridge: Bridge)
+    func bridge(_ bridge: Bridge, didReceiveData data: NSData)
+}
+
+public enum BridgeStatus {
+    case connected, disconnected, error
+}
+
+open class Bridge: NSObject {
+    private let bridgeDelegateQueueName = "BridgeDelegateQueue"
+    private let bridgeDomain = "local."
+    private let bridgeType = "_PRAHVI._tcp."
+    private var netService: NetService?
+    private var asyncSocket: GCDAsyncSocket?
+    internal var connectedSockets = [GCDAsyncSocket]()
+    internal let bridgeDebug = BridgeDebug()
+    
+    public var delegate: BridgeDelegate?
+    public var bridgeStatus: BridgeStatus = .disconnected
+    open var bridgeName = ""
+    
+    public override init() {
+        super.init()
+        let delegateQueue = DispatchQueue(label: bridgeDelegateQueueName)
+        asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: delegateQueue)
+        bridgeDebug.delegate = self
+    }
+    
+    public convenience init(bridgeName: String) {
+        self.init()
+        self.bridgeName = bridgeName
+    }
+    
+    public func startService(completion: ((Bool, Error?)->())?) {
+        guard let asyncSocket = asyncSocket else { return }
+        
+        do {
+            try asyncSocket.accept(onPort: 0)
+            let port = asyncSocket.localPort
+            let netService = NetService(domain: bridgeDomain, type: bridgeType, name: bridgeName, port: Int32(port))
+            
+            netService.delegate = self
+            netService.publish()
+            
+            self.netService = netService
+            
+            if let completion = completion { completion(true, nil) }
+        } catch {
+            if let completion = completion { completion(false, error) }
+        }
+    }
+}
+
+extension Bridge: GCDAsyncSocketDelegate {
+    public func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        bridgeDebug.log("Service Connected: host(\(newSocket.connectedHost!)) port(\(newSocket.connectedPort))")
+        
+        newSocket.readData(withTimeout: -1, tag: 0)
+        connectedSockets.append(newSocket)
+        
+        delegate?.bridgeDidConnect(bridge: self)
+        
+        bridgeStatus = .connected
+    }
+    
+    public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        bridgeDebug.log("Service Disconnected: host(\(String(describing: sock.connectedHost))) port(\(sock.connectedPort))")
+        
+        let idx = connectedSockets.index(of: sock)
+        if let idx = idx { connectedSockets.remove(at: idx) }
+        
+        delegate?.bridgeDidDisconnect(bridge: self)
+        
+        bridgeStatus = .disconnected
+    }
+    
+    public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+//        bridgeDebug.log("Service Received Data: data(\(data)), tag(\(tag))")
+        delegate?.bridge(self, didReceiveData: data as NSData)
+        
+        sock.readData(withTimeout: -1, tag: 0)
+    }
+}
+
+extension Bridge: NetServiceDelegate {
+    public func netServiceDidPublish(_ sender: NetService) {
+        bridgeDebug.log("Service Published: domain(\(sender.domain)) type(\(sender.type)) name(\(sender.name)) port(\(sender.port))")
+    }
+    public func netService(_ sender: NetService, didNotPublish errorDict: [String : NSNumber]) {
+        bridgeDebug.err("Service Failed: \(errorDict)")
+    }
+    public func netServiceDidStop(_ sender: NetService) {
+        bridgeDebug.log("Service Stopped: domain(\(sender.domain)) type(\(sender.type)) name(\(sender.name)) port(\(sender.port))")
+    }
+}
+
+extension Bridge: BridgeDebugDelegate {
+    func didPrintMessage(object: BridgeDebugMessage) {
+        delegate?.didPrintDebugMessage(object: object)
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeCaptureViewController.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/27/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class BridgeCaptureViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
+    
+    internal var image: UIImage?
+    internal var totalImageData = [UInt8]()
+    internal var isImageBlurred: Bool = false {
+        didSet {
+            title = isImageBlurred ? "Blurry" : "Not Blurry"
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        BridgeGlobal.bridgeCoordinator.delegate = self
+    }
+    
+    func refreshImage() {
+        guard let url = URL(string: "http://raspberrypi.local/~pi/image.jpeg") else { return }
+        BridgeCoordinator.image(fromURL: url) { (image, error) in
+            if let image = image {
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                    self.imageView.setNeedsDisplay()
+                    
+                    self.isImageBlurred = BridgeGlobal.pv.isImageBlurred(image)
+                }
+            }
+        }
+    }
+}
+extension BridgeCaptureViewController: BridgeCoordinatorDelegate {
+    func bridgeCoordinator(_ coordinator: BridgeCoordinator, didReceiveData data: NSData) {
+        refreshImage()
+    }
+    func bridgeCoordinatorDidConnect(_ coordinator: BridgeCoordinator) {}
+    func bridgeCoordinatorDidDisconnect(_ coordinator: BridgeCoordinator) {}
+    func imageFromByteArray(data: [UInt8], size: CGSize) -> UIImage? {
+        guard data.count >= 8 else {
+            print("data too small")
+            return nil
+        }
+        
+        let width  = Int(size.width)
+        let height = Int(size.height)
+        
+        guard data.count >= width * height * 4 else {
+            print("data not large enough to hold \(width)x\(height)")
+            return nil
+        }
+        
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let msgData = NSMutableData(bytes: data, length: data.count)
+        
+        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue
+        
+        guard let bitmapContext = CGContext(data: msgData.mutableBytes, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width*4, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            print("context is nil")
+            return nil
+        }
+        
+        let dataPointer = bitmapContext.data?.assumingMemoryBound(to: UInt8.self)
+        
+        for index in 0 ..< width * height * 4  {
+            dataPointer?[index] = data[index]
+        }
+        
+        guard let cgImage = bitmapContext.makeImage() else {
+            print("image is nil")
+            return nil
+        }
+        
+        return UIImage(cgImage: cgImage)
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeConstants.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+import Foundation
+
+struct Constants {
+    static let bridgeNotification = Notification.Name("bridgeNotification")
+    static let connectNotification = Notification.Name("connectNotification")
+    static let imageCaptureBridgeName = "ImageCaptureBridge"
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeHandler.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+protocol BridgeCoordinatorDelegate {
+    func bridgeCoordinator(_ coordinator: BridgeCoordinator, didReceiveData data: NSData)
+    func bridgeCoordinatorDidConnect(_ coordinator: BridgeCoordinator)
+    func bridgeCoordinatorDidDisconnect(_ coordinator: BridgeCoordinator)
+}
+class BridgeCoordinator: NSObject {
+    var baseBridge: Bridge?
+    var imageCaptureBridge: BridgeImageCapture?
+    var delegate: BridgeCoordinatorDelegate?
+    
+    override init() {
+        super.init()
+        let baseBridge = Bridge()
+        baseBridge.delegate = self
+        self.baseBridge = baseBridge
+    }
+    
+    func startCommunication() {
+        baseBridge?.startService(completion: nil)
+    }
+    
+    class func image(fromURL url: URL, completion: ((UIImage?, Error?)->Void)?) {
+        let task = URLSession.shared.downloadTask(with: url) { (location, _, error) in
+            if let location = location {
+                do {
+                    let image = try UIImage(data: Data(contentsOf: location))
+                    if let completion = completion {
+                        completion(image, error)
+                    }
+                } catch {
+                    completion!(nil, error)
+                }
+            } else {
+                completion!(nil, error)
+            }
+        }
+        task.resume()
+    }
+}
+
+extension BridgeCoordinator: BridgeDelegate {
+    func didPrintDebugMessage(object: BridgeDebugMessage) {
+        NotificationCenter.default.post(name: Constants.bridgeNotification, object: object)
+    }
+    func bridgeDidConnect(bridge: Bridge) {
+        if (bridge == baseBridge) {
+            delegate?.bridgeCoordinatorDidConnect(self)
+        }
+    }
+    func bridgeDidDisconnect(bridge: Bridge) {
+        if (bridge == baseBridge) {
+            delegate?.bridgeCoordinatorDidDisconnect(self)
+        }
+    }
+    func bridge(_ bridge: Bridge, didReceiveData data: NSData) {
+        delegate?.bridgeCoordinator(self, didReceiveData: data)
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeDebug.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import Foundation
+
+public enum BridgeDebugMessageType {
+    case notification, error
+}
+
+public struct BridgeDebugMessage {
+    public var message: String
+    public var type: BridgeDebugMessageType
+}
+
+protocol BridgeDebugDelegate {
+    func didPrintMessage(object: BridgeDebugMessage)
+}
+
+class BridgeDebug: NSObject {
+    private let errorPrefix = "[Bridge ⚠️] "
+    private let notifPrefix = "[Bridge 💬] "
+    
+    var delegate: BridgeDebugDelegate?
+    
+    func log(_ message: String, separator: String = " ", terminator: String = "\n") {
+        print(notifPrefix, message, separator:separator, terminator: terminator)
+        delegate?.didPrintMessage(object: BridgeDebugMessage(message: notifPrefix.appending(message), type: .notification))
+    }
+    func err(_ message: String, separator: String = " ", terminator: String = "\n") {
+        print(errorPrefix, message, separator:separator, terminator: terminator)
+        delegate?.didPrintMessage(object: BridgeDebugMessage(message: errorPrefix.appending(message), type: .error))
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeImageCapture.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+class BridgeImageCapture: Bridge {
+    override init() {
+        super.init()
+        self.bridgeName = Constants.imageCaptureBridgeName
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeLogViewController.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+class BridgeLogViewController: UIViewController {
+
+    @IBOutlet var textView: UITextView?
+    @IBOutlet var typeSelector: UISegmentedControl?
+    
+    internal var messageObjects = [BridgeDebugMessage]()
+    internal var errorObjects: [BridgeDebugMessage] {
+        return messageObjects.filter({ message -> Bool in
+            return message.type == .error
+        })
+    }
+    internal enum DebugDisplayType {
+        case all, error
+    }
+    internal var selectedType: DebugDisplayType = .all {
+        didSet { refreshLogList() }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogNotification), name: Constants.bridgeNotification, object: nil)
+        
+        typeSelector?.addTarget(self, action: #selector(typeSelectorTapped), for: .valueChanged)
+        textView?.text = ""
+        logLoop(withDelay: 1)
+    }
+    
+    @objc func typeSelectorTapped() {
+        guard let selected = typeSelector?.selectedSegmentIndex else
+        { return }
+        switch selected {
+        case 1: selectedType = .error
+        case 0: fallthrough
+        default:
+            selectedType = .all
+        }
+    }
+    
+    @objc func handleLogNotification(_ notification: Notification) {
+        if let message = notification.object as? BridgeDebugMessage {
+            messageObjects.append(message)
+        }
+    }
+    
+    func logLoop(withDelay delay: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+delay) {
+            self.refreshLogList()
+            self.logLoop(withDelay: delay)
+        }
+    }
+    
+    func refreshLogList() {
+        DispatchQueue.main.async {
+            switch self.selectedType {
+            case .error:
+                self.textView?.text = self.errorObjects.reduce("", { (text, object) -> String in
+                    return object.message + "\n\n" + text
+                })
+            case .all:
+                self.textView?.text = self.messageObjects.reduce("", { (text, object) -> String in
+                    return object.message + "\n\n" + text
+                })
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  BridgeNetworkCoordinator.swift
+//  PRAHVI-iOS
+//
+//  Created by Blake Tsuzaki on 5/9/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+import AFNetworking
+
+enum NetworkHandlerError: Error {
+    case nullData, generic
+}
+
+class BridgeNetworkCoordinator: NSObject {
+    static let baseURLString = "http://174.62.109.150/"
+    
+    internal class func handleNeedsLogin(completion: (Error?, [String: Any]?)->Void) {
+        completion(nil, nil)
+    }
+    internal class func handleFailure(error: Error?, completion: (Error?, [String: Any]?)->Void) {
+        if (error == nil) {
+            completion(NetworkHandlerError.generic, nil)
+        } else {
+            completion(error, nil)
+        }
+    }
+    internal class func handleSuccess(responseData: Data, completion: (Error?, [String: Any]?)->Void) {
+        do {
+            if let response = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] {
+                completion(nil, response)
+            } else { handleFailure(error: NetworkHandlerError.nullData, completion: completion) }
+        } catch { handleFailure(error: error, completion: completion) }
+    }
+//    static let boundaryString = "------------------------a0697323486838f1"
+    internal class func urlRequest(path: String, data: Data?) -> URLRequest {
+        guard let url = URL(string: baseURLString + path) else { fatalError() }
+        var request = URLRequest(url: url)
+        
+//        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("*/*", forHTTPHeaderField: "Accept")
+        request.setValue(nil, forHTTPHeaderField: "Accept-Language")
+        request.setValue(nil, forHTTPHeaderField: "Accept-Encoding")
+        if let data = data {
+            request.httpMethod = "POST"
+            request.httpBody = data
+            request.setValue(String(data.count), forHTTPHeaderField: "Content-Length")
+        } else {
+            request.httpMethod = "GET"
+        }
+        
+        return request
+    }
+    internal class func handleResponse(responseData: Any?, response: URLResponse?, error: Error?, completion: (Error?, [String: Any]?)->Void) {
+        if let httpResponse = response as? HTTPURLResponse {
+            switch httpResponse.statusCode {
+            case -1012:
+                handleNeedsLogin(completion: completion)
+            case 200:
+                if let responseData = responseData {
+                    completion(nil, responseData as? Dictionary)
+                } else { fallthrough }
+            default:
+                handleFailure(error: error, completion: completion)
+            }
+        }
+    }
+    @discardableResult internal class func get(_ path: String, completion: @escaping (Error?, [String: Any]?)->Void) -> URLSessionDataTask? {
+        let request = urlRequest(path: path, data: nil)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { (responseData, response, error) in
+            handleResponse(responseData: responseData, response: response, error: error, completion: completion)
+        })
+        
+        task.resume()
+        return task
+    }
+    
+    class func postImage(_ image: UIImage, path: String, completion: @escaping (Error?, [String: Any]?)->Void) {
+        do {
+//            var request = URLRequest(url: URL(string: baseURLString+path)!)
+            let imageData = UIImageJPEGRepresentation(image, 1)
+//            let imageUTFData =
+            //let base64String = imageData?.base64EncodedString(options: []) // encode the image
+//            request.httpMethod = "POST"
+//            request.httpBody = createRequestBodyWith(parameters: [:], image: image, boundary: self.generateBoundaryString()) as Data
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            request.addValue("application/json", forHTTPHeaderField: "Accept")
+//            let params = ["image":[ "content_type": "image/jpeg", "filename":"test.jpg", "file_data": base64String]]
+//            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+//            let request = AFHTTPRequestSerializer().multipartFormRequest(withMethod: "POST",
+//                                                                         urlString: baseURLString+path,
+//                                                                         parameters: nil, constructingBodyWith: { (formData) in
+//                                                                            formData.appendPart(withFileData: imageData!, name: "file", fileName: "image.jpeg", mimeType: "image/jpeg")
+//            }, error: nil)
+//            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//            let filePath = "\(paths[0])/image.jpeg"
+            
+            // Save image.
+//            try imageData?.write(to: URL(string: filePath)!)
+            
+//            let request = urlRequest(path: path, data: imageData)
+//            let session = URLSession.shared
+////            let manager = AFURLSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+//            let task = session.dataTask(with: request as URLRequest, completionHandler: { (responseData, response, error) in
+//                handleResponse(responseData: responseData, response: response, error: error, completion: completion)
+//            })
+//            
+//            task.resume()
+//            
+            let manager = AFURLSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+            manager.responseSerializer = AFJSONResponseSerializer(readingOptions: .allowFragments)
+            let request = AFHTTPRequestSerializer().multipartFormRequest(withMethod: "POST", urlString: baseURLString+path, parameters: nil, constructingBodyWith: { (formData) in
+                formData.appendPart(withFileData: imageData!, name: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+            }, error: nil)
+            let uploadTask = manager.uploadTask(withStreamedRequest: request as URLRequest, progress: nil, completionHandler: { (response, responseObject, error) in
+                handleResponse(responseData: responseObject, response: response, error: error, completion: completion)
+            })
+            uploadTask.resume()
+        } catch {
+            handleFailure(error: error, completion: completion)
+        }
+    }
+    
+    class func post(_ dictionary: [String: Any], path: String, completion: @escaping (Error?, [String: Any]?)->Void) {
+        do {
+//            let sendData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
+//            let request = urlRequest(path: path, data: sendData)
+//            let session = URLSession.shared
+//            let task = session.dataTask(with: request, completionHandler: { (responseData, response, error) in
+//                handleResponse(responseData: responseData, response: response, error: error, completion: completion)
+//            })
+//            
+//            task.resume()
+//            return task
+            
+            let manager = AFURLSessionManager(sessionConfiguration: URLSessionConfiguration.default)
+            manager.responseSerializer = AFJSONResponseSerializer(readingOptions: .allowFragments)
+            let request = AFHTTPRequestSerializer().request(withMethod: "POST", urlString: baseURLString+path, parameters: nil, error: nil)
+            
+            let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
+//            let jsonString = String(data: jsonData, encoding: .utf8)
+            
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue(String(jsonData.count), forHTTPHeaderField: "Content-Length")
+            request.httpBody = jsonData
+            
+            let uploadTask = manager.dataTask(with: request as URLRequest, completionHandler: { (response, responseObject, error) in
+                handleResponse(responseData: responseObject, response: response, error: error, completion: completion)
+            })
+            uploadTask.resume()
+        } catch {
+            handleFailure(error: error, completion: completion)
+//            return nil
+        }
+    }
+    
+    internal class func createRequestBodyWith(parameters:[String:NSObject], image:UIImage, boundary:String) -> NSData{
+        
+        let body = NSMutableData()
+        
+        for (key, value) in parameters {
+            body.appendString(string: "--\(boundary)\r\n")
+            body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString(string: "\(value)\r\n")
+        }
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        
+        let mimetype = "image/jpg"
+        
+        let defFileName = "image.jpeg"
+        
+        let imageData = UIImageJPEGRepresentation(image, 1)
+        
+        body.appendString(string: "Content-Disposition: form-data; name=\"image.jpeg\"; filename=\"\(defFileName)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageData!)
+        body.appendString(string: "\r\n")
+        
+        body.appendString(string: "--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    
+    internal class func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
+}
+
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  ImageSelectorViewController.swift
+//  PRAHVI-iOS
+//
+//  Created by Abe Millan on 5/1/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+class ImageSelectorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let imagePicker = UIImagePickerController()
+    let pv = BridgeGlobal.pv
+    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var textField: UITextView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    @IBAction func didPressUseLibraryButton(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressTakePhotoButton(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
+
+    }
+    
+    
+    // Image Picker Delagate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let picker = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .scaleToFill
+            imageView.image = picker
+            
+            textField.text = "Doing OCR..."
+            DispatchQueue.global(qos: .background).async {
+                print("Doing OCR...")
+                
+                let status = self.pv.getNewText(picker)
+                
+                DispatchQueue.main.async {
+                    if status == PrahviResult.Success {
+                        self.textField.text = self.pv.text
+                        print("Success\n")
+                        print(self.pv.text)
+                    }
+                    else {
+                        self.textField.text = "Sorry, couldnt translate this image"
+                        print("Sorry, couldnt translate this image")
+                    }
+                }
+                
+            }
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  Use this file to import your target's public headers that you would like to expose to Swift.
+//
+
+#include "prahviWrapper.h"
+#include <AFNetworking/AFNetworking.h>
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  prahvi.cpp
+//  prahvi
+//
+//  Created by Yang Li on 4/29/17.
+//  Copyright © 2017 Portable Reading Assistant Headset for the Visually Impaired. All rights reserved.
+//
+//  Description: prahvi class
+//		the prahvi class does the preprocessing and text detection
+//		other program can create and call this class to get corresponding results
+
+#include "prahvi.hpp"
+#include "blurDetection.hpp"
+#include "similarityDetection.hpp"
+#include "imageToText.hpp"
+#include "scanner.hpp"
+#include "boundingBoxDetection.hpp"
+
+//	Function: prahvi::prahvi
+//	Description: constructor for prahvi
+prahvi::prahvi()
+{
+	_previousImage = cv::Mat::zeros(1, 1, CV_64F);
+	_currentText = "";
+	_currentImage = cv::Mat::zeros(1, 1, CV_64F);
+}
+
+//	Function: prahvi::getText
+//	Description: get the text of the current image
+std::string prahvi::getText()
+{
+	return _currentText;
+}
+
+bool prahvi::isImageBlurrred(cv::Mat &image) {
+    return isBlur(image);
+}
+
+//	Function: prahvi::getNewText
+//	Description: get a new image and process it
+//		the fucntion will get a new image
+//		if the new image is blur, it will terminate
+//		otherwise, it will extract the text area
+//		and compare to the previous text area
+ProcessResult prahvi::getNewText(cv::Mat &newImage)
+{
+	//	check if the new image is blurred
+	if(isBlur(newImage))
+	{
+		return BLUR;
+	}
+	
+	_previousImage = _currentImage;
+    _currentImage = getTextArea(newImage);
+	
+	//	check if the new image is similar to the previous image
+	//	TODO - uncomment after add IDF
+	/*
+	if(_previousImage == cv::Mat::zeros(1, 1, CV_64F) || isSimilar(_previousImage, _currentImage))
+	{
+		result = SIMILAR;
+		return "";
+	}
+	 */
+	
+	//	convert the image to text
+	_currentText = imageToText(_currentImage);
+	
+	//	reset TF-IDF and generate the score for the new document
+	//	TODO - uncomment after add IDF
+	//_tfidf.resetTerms();
+	//_tfidf.addTerms(_currentText);
+	return SUCCESS;
+}
+
+std::string prahvi::getKeyword(int n)
+{
+	//	TODO - uncomment after add IDF
+	return "";//_tfidf.getTerm(n);
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  prahviWrapper.h
+//  PRAHVI-iOS
+//
+//  Created by Abe Millan on 5/1/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger, PrahviResult)
+{
+    Success = 1,
+    Blur,
+    Similar
+};
+
+@interface prahviWrapper : NSObject
+
+@property (nonatomic, readonly, copy) NSString *text;
+@property (nonatomic, readonly, copy) NSArray *keywords;
+
+- (enum PrahviResult)getNewText:(UIImage *)image;
+- (BOOL)isImageBlurred:(UIImage *)image;
+@end
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  prahvi.hpp
+//  prahvi
+//
+//  Created by Yang Li on 4/29/17.
+//  Copyright © 2017 Portable Reading Assistant Headset for the Visually Impaired. All rights reserved.
+//
+//  Description: header file for prahvi class
+
+#ifndef prahvi_hpp
+#define prahvi_hpp
+
+#include <opencv2/opencv.hpp>
+#include "tfidf.hpp"
+
+enum ProcessResult {SUCCESS, BLUR, SIMILAR};
+
+class prahvi
+{
+public:
+	prahvi();
+	std::string getText();
+	std::string getKeyword(int n=1);
+    bool isImageBlurrred(cv::Mat &image);
+	ProcessResult getNewText(cv::Mat &img);
+    
+private:
+	cv::Mat _previousImage;
+	cv::Mat _currentImage;
+	std::string _currentText;
+	//	TODO - uncomment after add IDF
+	//tfidf _tfidf;
+};
+
+#endif /* prahvi_hpp */
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  prahviWrapper.m
+//  PRAHVI-iOS
+//
+//  Created by Abe Millan on 5/1/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+#import "prahvi.hpp"
+#import "prahviWrapper.h"
+
+@interface prahviWrapper ()
+@property (nonatomic, readwrite, assign) prahvi *prahv;
+@end
+
+@implementation prahviWrapper
+
+@synthesize prahv = _prahv;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _prahv = new prahvi();
+    }
+    return self;
+}
+
+- (BOOL)isImageBlurred:(UIImage *)image {
+    cv::Mat cvImage = [self cvMatFromUIImage:image];
+    return self.prahv->isImageBlurrred(cvImage);
+}
+
+- (enum PrahviResult)getNewText:(UIImage *)image {
+    PrahviResult result;
+    //cv::Mat orig_image, bw_image;
+    //UIImageToMat(image, orig_image);
+    //cv::cvtColor(orig_image, bw_image, cv::COLOR_BGR2GRAY);
+    
+    cv::Mat cv_image = [self cvMatFromUIImage:image];
+    ProcessResult cpp_res = self.prahv->getNewText(cv_image);
+    
+    if (cpp_res == BLUR) {
+        result = Blur;
+    }
+    else if (cpp_res == SIMILAR) {
+        result = Similar;
+    }
+    else {
+        result = Success;
+    }
+    return result;
+}
+
+- (NSString *)text {
+    return [NSString stringWithUTF8String:self.prahv->getText().c_str()];
+}
+
+- (NSArray *)keywords {
+    // TODO
+    return [NSArray init];
+}
+
+// Private Methods
+- (cv::Mat)cvMatFromUIImage:(UIImage *)image
+{
+    CGColorSpaceRef colorSpace = CGImageGetColorSpace( image.CGImage );
+    CGFloat cols = image.size.width;
+    CGFloat rows = image.size.height;
+    cv::Mat cvMat( rows, cols, CV_8UC4 );
+    CGContextRef contextRef = CGBitmapContextCreate( cvMat.data, cols, rows, 8, cvMat.step[0], colorSpace, kCGImageAlphaNoneSkipLast | kCGBitmapByteOrderDefault );
+    CGContextDrawImage( contextRef, CGRectMake(0, 0, cols, rows), image.CGImage );
+    CGContextRelease( contextRef );
+    CGColorSpaceRelease( colorSpace );
+    return cvMat;
+}
+
+- (cv::Mat)cvMatGrayFromUIImage:(UIImage *)image
+{
+    cv::Mat cvMat = [self cvMatFromUIImage:image];
+    cv::Mat grayMat;
+    if ( cvMat.channels() == 1 ) {
+        grayMat = cvMat;
+    }
+    else {
+        grayMat = cv :: Mat( cvMat.rows,cvMat.cols, CV_8UC1 );
+        cv::cvtColor( cvMat, grayMat, CV_BGR2GRAY );
+    }
+    return grayMat;
+}
+
+
+@end
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  Receiver.swift
+//  Bridge
+//
+//  Created by Blake Tsuzaki on 4/3/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+
+open class Receiver: NSObject {
+    
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+//
+//  PRAHVIViewController.swift
+//  PRAHVI-iOS
+//
+//  Created by Blake Tsuzaki on 5/10/17.
+//  Copyright © 2017 PRAHVI. All rights reserved.
+//
+
+import UIKit
+import AVFoundation
+import AudioToolbox.AudioServices
+
+class ReaderViewController: UIViewController {
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var gestureArea: UIView!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
+    @IBOutlet var doubleTapGestureRecognizer: UITapGestureRecognizer!
+    var spokenTextLengths: Int = 0
+    var totalUtterances: Int = 0
+    var currentUtterance: Int = 0
+    var currentWord: Int = 0
+    var currentIdx: Int = 0
+    var previousSelectedRange: NSRange?
+    var utteranceTexts: [String]?
+    var previousTranslation = CGPoint(x: 0, y: 0)
+    var nextWord: Int = 0
+    
+    var needsUnblurredImage: Bool = false
+    
+    override var prefersStatusBarHidden: Bool {
+        get { return true }
+    }
+    let speechSynthesizer = AVSpeechSynthesizer()
+    let lastSynthesizer = AVSpeechSynthesizer()
+    let wordScrollUnit: CGFloat = 20
+    
+    let instructionSpeechSynthesizer = AVSpeechSynthesizer()
+    let takePictureUtterance = AVSpeechUtterance(string: "Double tap to take a picture.")
+    
+    func resetSpeaking() {
+        speechSynthesizer.stopSpeaking(at: .immediate)
+        spokenTextLengths = 0
+         totalUtterances = 0
+         currentUtterance = 0
+         currentWord = 0
+         currentIdx = 0
+         previousSelectedRange = NSRange()
+         previousTranslation = CGPoint(x: 0, y: 0)
+         nextWord = 0
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        gestureArea.layer.cornerRadius = 10
+        tapGestureRecognizer.addTarget(self, action: #selector(ReaderViewController.userDidTapGestureArea))
+        panGestureRecognizer.addTarget(self, action: #selector(ReaderViewController.userDidPanGestureArea))
+        doubleTapGestureRecognizer.addTarget(self, action: #selector(ReaderViewController.userDidDoubleTapGestureArea))
+        
+        speechSynthesizer.delegate = self
+        
+        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
+        
+        textView.text = ""
+        loadingView.alpha = 0
+//        loadingView.removeFromSuperview()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        BridgeGlobal.bridgeCoordinator.delegate = self
+    }
+    
+    var didAlertReady: Bool = false
+    
+    func playImageFoundSound() {
+        let filePath = Bundle.main.path(forResource: "Duplicate", ofType: "aif")
+        let soundURL = NSURL(fileURLWithPath: filePath!)
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(soundURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playTextTranslatedSound() {
+        let filePath = Bundle.main.path(forResource: "Message Received", ofType: "aif")
+        let soundURL = NSURL(fileURLWithPath: filePath!)
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(soundURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playTextSentSound() {
+        let filePath = Bundle.main.path(forResource: "Message Sent", ofType: "aif")
+        let soundURL = NSURL(fileURLWithPath: filePath!)
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(soundURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    func playTextErrorSound() {
+        let filePath = Bundle.main.path(forResource: "Invalid", ofType: "aif")
+        let soundURL = NSURL(fileURLWithPath: filePath!)
+        var soundID: SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(soundURL, &soundID)
+        AudioServicesPlaySystemSound(soundID)
+    }
+    
+    var isUpdating = false
+    var neededUnburredImage = false
+    
+    func sanitized(string: String) -> String {
+        var sanitized: String = ""
+        for (index, element) in string.characters.enumerated() {
+            if index <= 0 {
+                sanitized.append(element)
+                continue
+            }
+            if element == "\n" && string[index-1] != "." && string[index-1] != "\"" && string[index-1] != "\'" {
+                sanitized.append(" ")
+                continue
+            }
+            sanitized.append(element)
+        }
+        var corrected: String = ""
+        let checker = UITextChecker()
+        for word in sanitized.components(separatedBy: .whitespaces) {
+            let range = NSRange(location: 0, length: word.characters.count)
+            if let guesses = checker.guesses(forWordRange: range, in: word, language: "en"), guesses.count > 0 {
+                corrected += guesses[0]
+            } else {
+                corrected += word
+            }
+            
+            corrected.append(" ")
+        }
+        
+        return sanitized
+    }
+    
+    let summarizationSpeechSynthesizer = AVSpeechSynthesizer()
+    
+    func doSummary(string: String) {
+//        DispatchQueue.main.async {
+//            let words = string.components(separatedBy: .punctuationCharacters).joined()
+//            let dictionary: [String: String] = [
+//                "text": "This is a book book"
+//            ]
+//            
+//            BridgeNetworkCoordinator.post(dictionary, path: "api/v1/text/tfidf", completion: { (error, result) in
+//                if let result = result {
+//                    let results = result["result"] as! [String: Any]
+//                    var key: String = ""
+//                    var score: Int = 0
+//                    for (term, value) in results {
+//                        if value as! Int > score {
+//                            score = value as! Int
+//                            key = term
+//                        }
+//                    }
+//                    
+//                    self.summarizationSpeechSynthesizer.speak(AVSpeechUtterance(string: key))
+//                }
+//            })
+//        }
+        DispatchQueue.main.async {
+        self.summarizationSpeechSynthesizer.speak(AVSpeechUtterance(string: "The top five keywords in this document are ID, didn't, serves, activity, and twitter... Tap to read this article."))
+        }
+    }
+    
+    func refreshImage() {
+        if isUpdating { return }
+        guard let url = URL(string: "http://raspberrypi.local/~pi/image.jpeg") else { return }
+        BridgeCoordinator.image(fromURL: url) { (image, error) in
+            if let image = image, !BridgeGlobal.pv.isImageBlurred(image) {
+                if /*!self.isUpdating ||*/ self.needsUnblurredImage {
+//                    self.view.addSubview(self.loadingView)
+                    DispatchQueue.main.async {
+                        self.loadingView.alpha = 1.0
+                        self.activityIndicator.startAnimating()
+                    }
+                    
+                    self.playTextSentSound()
+                    
+                    //self.isUpdating = true
+//                    let rotatedImage = UIImage(cgImage: image.cgImage! ,
+//                                               scale: 1.0 ,
+//                                               orientation: .left)
+                    BridgeNetworkCoordinator.postImage(image, path: "api/v1/image/ocr4/", completion: { (error, dictionary) in
+                        if error != nil { print(error ?? "oops") }
+                        if let dictionary = dictionary {
+                            let string = dictionary["result"] as! String
+                            if (string.characters.count > 20) {
+//                            self.doSummary(string: string)
+                            }
+                            self.textView.text = self.sanitized(string: string)
+                            
+                            self.resetSpeaking()
+                            if self.neededUnburredImage {
+                                self.neededUnburredImage = false
+                            }
+                        }
+                        if self.textView.text == "" {
+                            self.playTextErrorSound()
+                        } else {
+                            self.playTextTranslatedSound()
+                        }
+                        self.isUpdating = false
+                        UIView.animate(withDuration: 0.5, animations: { 
+                            self.loadingView.alpha = 0
+                            self.activityIndicator.stopAnimating()
+                        }, completion: { (_) in
+//                            self.loadingView.removeFromSuperview()
+                        })
+                    })
+                    
+                    self.neededUnburredImage = self.needsUnblurredImage
+                    self.needsUnblurredImage = false
+                } else if !self.didAlertReady {
+                    self.playImageFoundSound()
+                    self.didAlertReady = true
+                }
+            } else {
+                self.didAlertReady = false
+            }
+        }
+    }
+    
+    func userDidDoubleTapGestureArea(sender: UITapGestureRecognizer) {
+        needsUnblurredImage = true
+    }
+    
+    func userDidTapGestureArea(sender:UITapGestureRecognizer) {
+        if textView.text == "" {
+            takePictureUtterance.preUtteranceDelay = 0
+            takePictureUtterance.postUtteranceDelay = 0
+            instructionSpeechSynthesizer.speak(takePictureUtterance)
+        }
+        if speechSynthesizer.isSpeaking {
+            if (speechSynthesizer.isPaused) { speechSynthesizer.continueSpeaking() }
+            else { speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.word) }
+        } else {
+            let utteranceTexts = textView.text.components(separatedBy: "\n")
+            var utteranceIdx = 0
+            var utteranceLength = 0
+            for utteranceText in utteranceTexts {
+                let textLength = utteranceText.components(separatedBy: " ").count
+                if utteranceLength + textLength < nextWord {
+                    utteranceLength += textLength
+                    utteranceIdx += 1
+                } else {
+                    break
+                }
+            }
+            
+            totalUtterances = utteranceTexts.count - utteranceIdx
+            currentUtterance = utteranceIdx
+            currentWord = nextWord
+            
+            for idx in utteranceIdx...utteranceTexts.count-1 {
+                var utteranceText = utteranceTexts[idx]
+                if idx == 0 {
+                    let textRange = utteranceText.components(separatedBy: " ")
+                    var wordPosition = 0
+                    if nextWord > 0 {
+                        for idx in 0...nextWord-1 {
+                            wordPosition += textRange[idx].characters.count
+                        }
+                    }
+                    wordPosition += nextWord
+                    let startIndex = utteranceText.index(utteranceText.startIndex, offsetBy: wordPosition)
+                    utteranceText = utteranceText.substring(from: startIndex)
+                    currentIdx = wordPosition
+                }
+                let utterance = AVSpeechUtterance(string: utteranceText)
+                
+                speechSynthesizer.speak(utterance)
+            }
+            self.utteranceTexts = utteranceTexts
+        }
+    }
+    func userDidPanGestureArea(sender:UIPanGestureRecognizer) {
+        if (speechSynthesizer.isSpeaking) { speechSynthesizer.stopSpeaking(at: .immediate) }
+        let translation = sender.translation(in: sender.view)
+        let textRange = textView.text.components(separatedBy: " ")
+        
+        if (translation.x != previousTranslation.x) {
+            if (floor(translation.x/wordScrollUnit) != floor(previousTranslation.x/wordScrollUnit)) {
+                let indexOffset = floor(translation.x/wordScrollUnit)
+                let wordOffset = currentWord + Int(indexOffset)
+                
+                if wordOffset >= 0 && wordOffset < textRange.count {
+                    let utterance = AVSpeechUtterance(string: textRange[wordOffset])
+                    utterance.rate = 0.6
+                    utterance.preUtteranceDelay = 0.0
+                    utterance.postUtteranceDelay = 0.0
+                    if lastSynthesizer.isSpeaking {
+                        lastSynthesizer.stopSpeaking(at: .immediate)
+                    }
+                    lastSynthesizer.speak(utterance)
+                    
+                    var wordPosition = 0
+                    if wordOffset > 0 {
+                        for idx in 0...wordOffset-1 {
+                            wordPosition += textRange[idx].characters.count
+                        }
+                    }
+                    wordPosition += wordOffset
+                    
+                    let rangeInTotalText = NSRange(location: wordPosition, length: textRange[wordOffset].characters.count)
+                    highlightRange(rangeInTotalText)
+                    
+                    nextWord = wordOffset
+                    
+                    if traitCollection.forceTouchCapability == .available {
+                        AudioServicesPlaySystemSound(1520)
+                    } else {
+                        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+                    }
+                }
+            }
+            previousTranslation = translation
+        }
+    }
+    
+    override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
+    
+    func unselectLastWord() {
+        if let selectedRange = previousSelectedRange {
+            let currentAttributes = textView.attributedText.attributes(at: selectedRange.location, effectiveRange: nil)
+            let fontAttribute: AnyObject? = currentAttributes[NSFontAttributeName] as AnyObject?
+            let attributedWord = NSMutableAttributedString(string: textView.attributedText.attributedSubstring(from: selectedRange).string)
+            
+            attributedWord.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attributedWord.length))
+            attributedWord.addAttribute(NSFontAttributeName, value: fontAttribute!, range: NSMakeRange(0, attributedWord.length))
+            
+            textView.textStorage.beginEditing()
+            textView.textStorage.replaceCharacters(in: selectedRange, with: attributedWord)
+            textView.textStorage.endEditing()
+        }
+    }
+    
+    func highlightRange(_ rangeInTotalText: NSRange) {
+        if rangeInTotalText.location > textView.attributedText!.length { return }
+        let currentAttributes = textView.attributedText.attributes(at: rangeInTotalText.location, effectiveRange: nil)
+        let fontAttribute: AnyObject? = currentAttributes[NSFontAttributeName] as AnyObject?
+        let attributedString = NSMutableAttributedString(string: textView.attributedText.attributedSubstring(from: rangeInTotalText).string)
+        
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange, range: NSMakeRange(0, attributedString.length))
+        
+        attributedString.addAttribute(NSFontAttributeName, value: fontAttribute!, range: NSMakeRange(0, attributedString.string.utf16.count))
+        
+        textView.scrollRangeToVisible(rangeInTotalText)
+        textView.textStorage.beginEditing()
+        textView.textStorage.replaceCharacters(in: rangeInTotalText, with: attributedString)
+        
+        if let previousRange = previousSelectedRange {
+            let previousAttributedText = NSMutableAttributedString(string: textView.attributedText.attributedSubstring(from: previousRange).string)
+            previousAttributedText.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, previousAttributedText.length))
+            previousAttributedText.addAttribute(NSFontAttributeName, value: fontAttribute!, range: NSMakeRange(0, previousAttributedText.length))
+            
+            textView.textStorage.replaceCharacters(in: previousRange, with: previousAttributedText)
+        }
+        
+        textView.textStorage.endEditing()
+        previousSelectedRange = rangeInTotalText
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if textView.isFirstResponder {
+            textView.resignFirstResponder()
+        }
+    }
+}
+
+extension ReaderViewController: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        spokenTextLengths = spokenTextLengths + utterance.speechString.utf16.count + 1
+        
+        if currentUtterance == totalUtterances {
+            unselectLastWord()
+            previousSelectedRange = nil
+        }
+    }
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        let rangeInTotalText = NSMakeRange(spokenTextLengths + characterRange.location + currentIdx, characterRange.length)
+        
+        currentWord += 1
+        textView.selectedRange = rangeInTotalText
+        
+        highlightRange(rangeInTotalText)
+    }
+}
+
+extension ReaderViewController: BridgeCoordinatorDelegate {
+    func bridgeCoordinatorDidConnect(_ coordinator: BridgeCoordinator){}
+    func bridgeCoordinatorDidDisconnect(_ coordinator: BridgeCoordinator){}
+    func bridgeCoordinator(_ coordinator: BridgeCoordinator, didReceiveData data: NSData) {
+        refreshImage()
+    }
+}
+
+extension String {
+    
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
+    
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: r.lowerBound)
+        let end = index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+        return self[Range(start ..< end)]
+    }
+}
+\end{lstlisting}
+
 \subsection{Server}
+
+\subsubsection{API}
+
+\subsubsection{File: autoapp.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""Create an application instance."""
+from flask.helpers import get_debug_flag
+
+from prahvi.app import create_app
+from prahvi.settings import DevConfig, ProdConfig
+
+CONFIG = DevConfig if get_debug_flag() else ProdConfig
+
+app = create_app(CONFIG)
+
+if __name__=='__main__':
+    app.run(host='0.0.0.0', port=5000, threaded=True)
+\end{lstlisting}
+
+\subsubsection{File: bootstrap.sh}
+\begin{lstlisting}
+cp dependencies/* $VIRTUAL_ENV/lib/
+ln -s $VIRTUAL_ENV/lib/cv2.so $VIRTUAL_ENV/lib/python2.7/site-packages/cv2.so
+echo 'export OLD_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"' >> $VIRTUAL_ENV/bin/postactivate
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$VIRTUAL_ENV/lib:$VIRTUAL_ENV/lib/python2.7/site-packages"' >> $VIRTUAL_ENV/bin/postactivate
+echo 'export PATH="$VIRTUAL_ENV/lib:$PATH"' >> $VIRTUAL_ENV/bin/postactivate
+echo 'export LD_LIBRARY_PATH=$OLD_LD_LIBRARY_PATH' >> $VIRTUAL_ENV/bin/postdeactivate
+echo 'unset OLD_LD_LIBRARY_PATH' >> $VIRTUAL_ENV/bin/postdeactivate
+\end{lstlisting}
+
+\subsubsection{File: Procfile}
+\begin{lstlisting}
+web: gunicorn prahvi.app:create_app\(\) -b 0.0.0.0:$PORT -w 3
+\end{lstlisting}
+
+\subsubsection{File: requirements.txt}
+\begin{lstlisting}
+# Deployment
+gunicorn>=19.1.1
+
+# Flask
+flask==0.12.1
+Werkzeug==0.11.15
+click>=5.0
+Flask-DebugToolbar==0.10.0
+
+# Data
+subprocess32
+fuzzywuzzy==0.15.0
+
+# TFIDF
+newspaper==0.0.9.8
+jupyter
+
+# Computer Vision
+numpy
+\end{lstlisting}
+
+\subsubsection{File: start\_app.sh}
+\begin{lstlisting}
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+cd /home/abemillan/Developer/PRAHVI/PRAHVI-Backend
+
+workon prahvi_backend
+
+gunicorn --workers 3 prahvi.app:create_app\(\)
+\end{lstlisting}
+
+\subsubsection{File: prahvi/app.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""The app module, containing the app factory function."""
+from flask import Flask, render_template
+
+from prahvi.api import v1
+from prahvi import commands
+from prahvi.extensions import debug_toolbar 
+from prahvi.settings import ProdConfig
+
+
+def create_app(config_object=ProdConfig):
+    """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
+    :param config_object: The configuration object to use.
+    """
+    app = Flask(__name__.split('.')[0])
+    app.config.from_object(config_object)
+    register_extensions(app)
+    register_blueprints(app)
+    register_errorhandlers(app)
+    register_shellcontext(app)
+    register_commands(app)
+    return app
+
+
+def register_extensions(app):
+    """Register Flask extensions."""
+    debug_toolbar.init_app(app)
+    return None
+
+
+def register_blueprints(app):
+    """Register Flask blueprints."""
+    app.register_blueprint(v1.blueprint, url_prefix='/api/v1')
+    return None
+
+
+def register_errorhandlers(app):
+    """Register error handlers."""
+    def render_error(error):
+        """Render error template."""
+        # If a HTTPException, pull the `code` attribute; default to 500
+        error_code = getattr(error, 'code', 500)
+        return render_template('{0}.html'.format(error_code)), error_code
+    for errcode in [401, 404, 500]:
+        app.errorhandler(errcode)(render_error)
+    return None
+
+
+def register_shellcontext(app):
+    """Register shell context objects."""
+    def shell_context():
+        """Shell context objects."""
+        return {}
+
+    app.shell_context_processor(shell_context)
+
+
+def register_commands(app):
+    """Register Click commands."""
+    app.cli.add_command(commands.test)
+    app.cli.add_command(commands.lint)
+    app.cli.add_command(commands.clean)
+    app.cli.add_command(commands.urls)
+\end{lstlisting}
+
+\subsubsection{File: prahvi/commands.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""Click commands."""
+import os
+from glob import glob
+from subprocess import call
+
+import click
+from flask import current_app
+from flask.cli import with_appcontext
+from werkzeug.exceptions import MethodNotAllowed, NotFound
+
+HERE = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.join(HERE, os.pardir)
+TEST_PATH = os.path.join(PROJECT_ROOT, 'tests')
+
+
+@click.command()
+def test():
+    """Run the tests."""
+    import pytest
+    rv = pytest.main([TEST_PATH, '--verbose'])
+    exit(rv)
+
+
+@click.command()
+@click.option('-f', '--fix-imports', default=False, is_flag=True,
+              help='Fix imports using isort, before linting')
+def lint(fix_imports):
+    """Lint and check code style with flake8 and isort."""
+    skip = ['requirements']
+    root_files = glob('*.py')
+    root_directories = [
+        name for name in next(os.walk('.'))[1] if not name.startswith('.')]
+    files_and_directories = [
+        arg for arg in root_files + root_directories if arg not in skip]
+
+    def execute_tool(description, *args):
+        """Execute a checking tool with its arguments."""
+        command_line = list(args) + files_and_directories
+        click.echo('{}: {}'.format(description, ' '.join(command_line)))
+        rv = call(command_line)
+        if rv != 0:
+            exit(rv)
+
+    if fix_imports:
+        execute_tool('Fixing import order', 'isort', '-rc')
+    execute_tool('Checking code style', 'flake8')
+
+
+@click.command()
+def clean():
+    """Remove *.pyc and *.pyo files recursively starting at current directory.
+    Borrowed from Flask-Script, converted to use Click.
+    """
+    for dirpath, dirnames, filenames in os.walk('.'):
+        for filename in filenames:
+            if filename.endswith('.pyc') or filename.endswith('.pyo'):
+                full_pathname = os.path.join(dirpath, filename)
+                click.echo('Removing {}'.format(full_pathname))
+                os.remove(full_pathname)
+
+
+@click.command()
+@click.option('--url', default=None,
+              help='Url to test (ex. /static/image.png)')
+@click.option('--order', default='rule',
+              help='Property on Rule to order by (default: rule)')
+@with_appcontext
+def urls(url, order):
+    """Display all of the url matching routes for the project.
+    Borrowed from Flask-Script, converted to use Click.
+    """
+    rows = []
+    column_length = 0
+    column_headers = ('Rule', 'Endpoint', 'Arguments')
+
+    if url:
+        try:
+            rule, arguments = (
+                current_app.url_map
+                           .bind('localhost')
+                           .match(url, return_rule=True))
+            rows.append((rule.rule, rule.endpoint, arguments))
+            column_length = 3
+        except (NotFound, MethodNotAllowed) as e:
+            rows.append(('<{}>'.format(e), None, None))
+            column_length = 1
+    else:
+        rules = sorted(
+            current_app.url_map.iter_rules(),
+            key=lambda rule: getattr(rule, order))
+        for rule in rules:
+            rows.append((rule.rule, rule.endpoint, None))
+        column_length = 2
+
+    str_template = ''
+    table_width = 0
+
+    if column_length >= 1:
+        max_rule_length = max(len(r[0]) for r in rows)
+        max_rule_length = max_rule_length if max_rule_length > 4 else 4
+        str_template += '{:' + str(max_rule_length) + '}'
+        table_width += max_rule_length
+
+    if column_length >= 2:
+        max_endpoint_length = max(len(str(r[1])) for r in rows)
+        # max_endpoint_length = max(rows, key=len)
+        max_endpoint_length = (
+            max_endpoint_length if max_endpoint_length > 8 else 8)
+        str_template += '  {:' + str(max_endpoint_length) + '}'
+        table_width += 2 + max_endpoint_length
+
+    if column_length >= 3:
+        max_arguments_length = max(len(str(r[2])) for r in rows)
+        max_arguments_length = (
+            max_arguments_length if max_arguments_length > 9 else 9)
+        str_template += '  {:' + str(max_arguments_length) + '}'
+        table_width += 2 + max_arguments_length
+
+    click.echo(str_template.format(*column_headers[:column_length]))
+    click.echo('-' * table_width)
+
+    for row in rows:
+        click.echo(str_template.format(*row[:column_length]))
+\end{lstlisting}
+
+\subsubsection{File: prahvi/compat.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""Python 2/3 compatibility module."""
+import sys
+
+PY2 = int(sys.version[0]) == 2
+
+if PY2:
+    text_type = unicode  # noqa
+    binary_type = str
+    string_types = (str, unicode)  # noqa
+    unicode = unicode  # noqa
+    basestring = basestring  # noqa
+else:
+    text_type = str
+    binary_type = bytes
+    string_types = (str,)
+    unicode = str
+    basestring = (str, bytes)
+\end{lstlisting}
+
+\subsubsection{File: prahvi/errors.py}
+\begin{lstlisting}
+from flask import jsonify
+
+
+class ValidationError(ValueError):
+    pass
+
+
+def not_modified():
+    response = jsonify({'status': 304, 'error': 'not modified'})
+    response.status_code = 304
+    return response
+
+
+def bad_request(message):
+    response = jsonify({'status': 400, 'error': 'bad request',
+                        'message': message})
+    response.status_code = 400
+    return response
+
+
+def unauthorized(message):
+    response = jsonify({'status': 401, 'error': 'unauthorized',
+                        'message': message})
+    response.status_code = 401
+    return response
+
+
+def forbidden(message):
+    response = jsonify({'status': 403, 'error': 'forbidden',
+                        'message': message})
+    response.status_code = 403
+    return response
+
+
+def not_found(message):
+    response = jsonify({'status': 404, 'error': 'not found',
+                        'message': message})
+    response.status_code = 404
+    return response
+
+
+def precondition_failed():
+    response = jsonify({'status': 412, 'error': 'precondition failed'})
+    response.status_code = 412
+    return response
+
+
+def too_many_requests(message, limit=None):
+    response = jsonify({'status': 429, 'error': 'too many requests',
+                        'message': message})
+    response.status_code = 429
+    return response
+\end{lstlisting}
+
+\subsubsection{File: prahvi/extensions.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""Extensions module. Each extension is initialized in the app factory located in app.py."""
+from flask_debugtoolbar import DebugToolbarExtension
+
+debug_toolbar = DebugToolbarExtension()
+\end{lstlisting}
+
+\subsubsection{File: prahvi/settings.py}
+\begin{lstlisting}
+# -*- coding: utf-8 -*-
+"""Application configuration."""
+import os
+
+
+class Config(object):
+    """Base configuration."""
+
+    SECRET_KEY = os.environ.get('PRAHVI_SECRET', 'secret-key')  # TODO: Change me
+    APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
+    PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
+    BCRYPT_LOG_ROUNDS = 13
+    DEBUG_TB_ENABLED = False  # Disable Debug toolbar
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+    CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
+
+
+class ProdConfig(Config):
+    """Production configuration."""
+
+    ENV = 'prod'
+    DEBUG = False
+    DEBUG_TB_ENABLED = False  # Disable Debug toolbar
+
+
+class DevConfig(Config):
+    """Development configuration."""
+
+    ENV = 'dev'
+    DEBUG = True
+    DEBUG_TB_ENABLED = True
+    CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
+
+
+class TestConfig(Config):
+    """Test configuration."""
+
+    TESTING = True
+    DEBUG = True
+    BCRYPT_LOG_ROUNDS = 4  # For faster tests; needs at least 4 to avoid "ValueError: Invalid rounds"
+    WTF_CSRF_ENABLED = False  # Allows form testing
+\end{lstlisting}
+
+\subsubsection{File: prahvi/api/v1/\_\_init\_\_.py}
+\begin{lstlisting}
+from flask import Blueprint, g
+from prahvi.errors import ValidationError, bad_request, not_found
+#from ..auth import auth
+#from prahvi.decorators import rate_limit
+
+blueprint = Blueprint('api', __name__)
+
+
+@blueprint.errorhandler(ValidationError)
+def validation_error(e):
+    return bad_request(e.args[0])
+
+
+@blueprint.errorhandler(400)
+def bad_request_error(e):
+    return bad_request('invalid request')
+
+
+@blueprint.errorhandler(404)
+def not_found_error(e):
+    return not_found('item not found')
+
+
+#@api.before_request
+#@rate_limit(limit=5, per=15)
+#@auth.login_required
+#def before_request():
+#    pass
+
+
+@blueprint.after_request
+def after_request(response):
+    if hasattr(g, 'headers'):
+        response.headers.extend(g.headers)
+    return response
+
+# do this last to avoid circular dependencies
+from prahvi.api.v1 import api 
+\end{lstlisting}
+
+\subsubsection{File: prahvi/api/v1/api.py}
+\begin{lstlisting}
+import numpy as np
+import cv2
+from prahvi.api.v1 import blueprint 
+from prahvi.lib import compareText, Prahvi3, Prahvi4, TFIDF
+from flask import jsonify, request
+
+import time
+
+
+class PRAHVIRESPONSE:
+    SUCCESS = 0
+    BLUR = 1
+
+def _get_image(stream):
+    data = stream.read()
+    image = np.asarray(bytearray(data), dtype='uint8')
+    return cv2.imdecode(image, cv2.IMREAD_COLOR)
+
+
+@blueprint.route('/image/ocr3/', methods=['POST'])
+def getTextFromImageUsingTesseract3():
+    pv = Prahvi3()
+    image = _get_image(request.files['image'])
+
+    response = pv.getNewText(image)
+    if response == PRAHVIRESPONSE.SUCCESS:
+        return jsonify({ 'result': pv.getText() })
+
+    return jsonify({ 'result': '' })
+
+
+@blueprint.route('/image/ocr4/', methods=['POST'])
+def getTextFromImageUsingTesseract4():
+    pv = Prahvi4()
+    image = _get_image(request.files['image'])
+    
+    if pv.getNewText(image) == PRAHVIRESPONSE.SUCCESS:
+        return jsonify({ 'result': pv.getText() })
+
+    return jsonify({ 'result': ''})
+
+
+@blueprint.route('/text/tfidf/', methods=['POST'])
+def getTFIDIF():
+    text = request.get_json() 
+    text = text.get('text')
+
+    tfidf = TFIDF(text)
+
+    return jsonify({ 'result': tfidf.result })
+
+
+@blueprint.route('/text/compare/', methods=['POST'])
+def getSimilarity():
+    data = request.get_json()
+    orig_text = data.get('text1')
+    comp_text = data.get('text2') 
+
+    if not orig_text or not comp_text:
+        return jsonify({ 'result': -1 })
+
+    return jsonify({ 'result': compareText(orig_text, comp_text) })
+\end{lstlisting}
+
+\subsubsection{File: prahvi/lib/\_\_init\_\_.py}
+\begin{lstlisting}
+import numpy as np
+import os
+import cv2
+import json
+from fuzzywuzzy import fuzz
+from ctypes import *
+
+libpath = os.environ.get('VIRTUAL_ENV')
+
+lib3 = cdll.LoadLibrary(os.path.join(libpath, 'lib/libprahvi3.so'))
+lib4 = cdll.LoadLibrary(os.path.join(libpath, 'lib/libprahvi4.so'))
+
+def compareText(string1, string2):
+    """Function to get accuracy between a ground truth str
+    and a ocr'd str"""
+    string1 = string1.replace('\n', '')
+    string2 = string2.replace('\n', '')
+
+    return float(fuzz.partial_ratio(string1, string2)) / 100.0
+
+
+class Prahvi3:
+    """Wrapper Class for C++ Prahvi API"""
+    def __init__(self):
+        cur_dir = os.path.abspath(os.path.dirname(__file__))
+        os.environ["TESSDATA_PREFIX"] = os.path.join(cur_dir, '../../tessdata/3.0.5/')
+
+        lib3.Prahvi_getText.restype = c_char_p
+        self.obj = lib3.Prahvi_new()
+
+    def getNewText(self, np_image):
+        return lib3.Prahvi_getNewText(self.obj, py_object(np_image))
+
+    def getText(self):
+        return lib3.Prahvi_getText(self.obj)
+
+
+class Prahvi4:
+    """Wrapper Class for C++ Prahvi API"""
+    def __init__(self):
+        cur_dir = os.path.dirname(__file__)
+        os.environ["TESSDATA_PREFIX"] = os.path.join(cur_dir, '../../tessdata/4.0.0/')
+
+        lib4.Prahvi_getText.restype = c_char_p
+        self.obj = lib4.Prahvi_new()
+
+    def getNewText(self, np_image):
+        return lib4.Prahvi_getNewText(self.obj, py_object(np_image))
+
+    def getText(self):
+        return lib4.Prahvi_getText(self.obj)
+
+
+
+class TFIDF:
+    """Class to compute the TFIDF of a document"""
+    def __init__(self, text):
+        text = text.split(' ')
+        idf, num_doc = json.loads(tfidf_file)
+        result = {}
+
+
+        tf = {}
+        for word in text:
+            if word == '':
+                continue
+            if tf.get(word):
+                tf[word] += 1
+            else:
+                tf[word] = 1
+
+        max_tf = max(tf.values())
+
+        for word in tf.keys():
+            tf[word] = 0.5 + 0.5 * (tf[word] / max_tf)
+            idf_val = log(num_doc / idf[word])
+            result[word] = tf[word] * idf_val
+
+        return result
+
+if __name__ == '__main__':
+    # Tests
+    pv = Prahvi3()
+
+    img_path = '/home/abemillan/Developer/PRAHVI/ExtractTextLine/test_images/IMG_9121.png'
+    img = cv2.imread(img_path) 
+
+
+    print 'Doing OCR3...'
+
+    print pv.getNewText(img)
+
+    print 'Results:'
+    print pv.getText()
+
+    pv = Prahvi4()
+    print 'Doing OCR4'
+    print pv.getNewText(img)
+
+    print 'Results: '
+    print pv.getText()
+\end{lstlisting}
 
 \subsubsection{Text Extraction}
 \begin{lstlisting}
@@ -953,9 +3051,29 @@ bool isSimilar(cv::Mat &img1, cv::Mat &img2);
 
 \end{lstlisting}
 
-
+\subsubsection{documentSimilarityScore.py}
 \begin{lstlisting}
+#!/usr/bin/python3
 
+import argparse
+from fuzzywuzzy import fuzz
+
+def getScore(fileAName, fileBName):
+	with open (fileAName, "r") as fileA:
+		textA = fileA.read().replace('\n', '')
+
+	with open (fileBName, "r") as fileB:
+		textB = fileB.read().replace('\n', '')
+
+	return fuzz.partial_ratio(textA, textB)
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("fileA", help='path for first file')
+parser.add_argument("fileB", help='path for second file')
+args = parser.parse_args()
+print(getScore(args.fileA, args.fileB))
 \end{lstlisting}
 
 

@@ -11,54 +11,6 @@
 \contentsline {section}{\numberline {3.2}Reading}{7}
 \contentsline {section}{\numberline {3.3}Discovery}{7}
 \contentsline {chapter}{\numberline {4}Architecture}{8}
-<<<<<<< HEAD
-\contentsline {section}{\numberline {4.1}High Level}{8}
-\contentsline {section}{\numberline {4.2}Architectural Diagram}{8}
-\contentsline {section}{\numberline {4.3}Hardware Interface}{9}
-\contentsline {section}{\numberline {4.4}User Interface}{9}
-\contentsline {section}{\numberline {4.5}Backend}{10}
-\contentsline {section}{\numberline {4.6}System Flow}{10}
-\contentsline {section}{\numberline {4.7}Text Extraction}{11}
-\contentsline {subsection}{\numberline {4.7.1}Image Pre-processing}{11}
-\contentsline {subsubsection}{Blurriness Test}{11}
-\contentsline {subsubsection}{Similarity Test}{12}
-\contentsline {subsection}{\numberline {4.7.2}Image Processing}{12}
-\contentsline {subsubsection}{Text Area Extraction}{14}
-\contentsline {subsubsection}{Text Detection}{14}
-\contentsline {section}{\numberline {4.8}Text Summarization}{14}
-\contentsline {chapter}{\numberline {5}Design Rationale}{16}
-\contentsline {section}{\numberline {5.1}Architecture}{16}
-\contentsline {section}{\numberline {5.2}Technologies Used}{17}
-\contentsline {chapter}{\numberline {6}Testing}{19}
-\contentsline {section}{\numberline {6.1}Alpha Testing}{19}
-\contentsline {subsection}{\numberline {6.1.1}Function Testing}{19}
-\contentsline {subsection}{\numberline {6.1.2}System Testing}{19}
-\contentsline {subsubsection}{Performance}{19}
-\contentsline {chapter}{\numberline {7}Development \& Manufacture Costs}{21}
-\contentsline {section}{\numberline {7.1}Development Cost}{21}
-\contentsline {section}{\numberline {7.2}Manufacture Cost}{22}
-\contentsline {chapter}{\numberline {8}Risk Analysis}{23}
-\contentsline {chapter}{\numberline {9}Development Timeline}{25}
-\contentsline {chapter}{\numberline {10}Ethical Analysis}{27}
-\contentsline {chapter}{\numberline {11}Sustainability}{29}
-\contentsline {chapter}{\numberline {12}Conclusion}{33}
-\contentsline {chapter}{\numberline {13}Appendix}{34}
-\contentsline {section}{\numberline {13.1}Sample Testing Documents}{34}
-\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{34}
-\contentsline {subsubsection}{Original Text}{34}
-\contentsline {subsubsection}{Detected Text}{35}
-\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{35}
-\contentsline {subsubsection}{Original Text}{35}
-\contentsline {subsubsection}{Detected Text}{36}
-\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{36}
-\contentsline {subsubsection}{Original Text}{36}
-\contentsline {subsubsection}{Detected Text}{37}
-\contentsline {section}{\numberline {13.2}Code}{38}
-\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{38}
-\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{38}
-\contentsline {subsection}{\numberline {13.2.3}Server}{38}
-\contentsline {subsubsection}{Text Extraction}{38}
-=======
 \contentsline {section}{\numberline {4.1}Activity Diagram}{8}
 \contentsline {section}{\numberline {4.2}Hardware}{9}
 \contentsline {section}{\numberline {4.3}User Interface}{10}
@@ -67,37 +19,56 @@
 \contentsline {section}{\numberline {4.6}Text Extraction}{13}
 \contentsline {subsection}{\numberline {4.6.1}Image Pre-processing}{13}
 \contentsline {subsubsection}{Blurriness Test}{13}
-\contentsline {subsubsection}{Similarity Test}{14}
-\contentsline {subsection}{\numberline {4.6.2}Image Processing}{14}
+\contentsline {subsubsection}{Similarity Test}{13}
+\contentsline {subsection}{\numberline {4.6.2}Image Processing}{15}
 \contentsline {subsubsection}{Text Area Extraction}{15}
-\contentsline {subsubsection}{Text Detection}{15}
+\contentsline {subsubsection}{Text Detection}{16}
 \contentsline {section}{\numberline {4.7}Text Summarization}{16}
-\contentsline {chapter}{\numberline {5}Design Rationale}{17}
-\contentsline {section}{\numberline {5.1}Architecture}{17}
-\contentsline {section}{\numberline {5.2}Technologies Used}{19}
-\contentsline {chapter}{\numberline {6}Testing}{21}
-\contentsline {section}{\numberline {6.1}Alpha Testing}{21}
-\contentsline {subsection}{\numberline {6.1.1}Function Testing}{21}
-\contentsline {subsection}{\numberline {6.1.2}System Testing}{21}
-\contentsline {subsubsection}{Performance}{21}
-\contentsline {chapter}{\numberline {7}Risk Analysis}{23}
-\contentsline {chapter}{\numberline {8}Ethical Analysis}{25}
-\contentsline {chapter}{\numberline {9}Sustainability}{27}
-\contentsline {chapter}{\numberline {10}Conclusion}{31}
-\contentsline {chapter}{\numberline {11}Appendix}{32}
-\contentsline {section}{\numberline {11.1}Sample Testing Documents}{32}
-\contentsline {subsection}{\numberline {11.1.1}Can Amazon's assistant stay on top?}{32}
-\contentsline {subsubsection}{Original Text}{32}
-\contentsline {subsubsection}{Detected Text}{34}
-\contentsline {subsection}{\numberline {11.1.2}Dubai becomes first city to get its own Microsoft font}{34}
-\contentsline {subsubsection}{Original Text}{34}
-\contentsline {subsubsection}{Detected Text}{35}
-\contentsline {subsection}{\numberline {11.1.3}FCC website 'targeted by attack' after John Oliver comments}{35}
-\contentsline {subsubsection}{Original Text}{35}
-\contentsline {subsubsection}{Detected Text}{36}
-\contentsline {section}{\numberline {11.2}Code}{37}
-\contentsline {subsection}{\numberline {11.2.1}Raspberry Pi}{37}
-\contentsline {subsection}{\numberline {11.2.2}Smart Phone Application}{37}
-\contentsline {subsection}{\numberline {11.2.3}Server}{37}
-\contentsline {subsubsection}{Text Extraction}{37}
->>>>>>> origin/master
+\contentsline {chapter}{\numberline {5}Design Rationale}{18}
+\contentsline {section}{\numberline {5.1}Architecture}{18}
+\contentsline {section}{\numberline {5.2}Technologies Used}{20}
+\contentsline {chapter}{\numberline {6}Testing}{22}
+\contentsline {section}{\numberline {6.1}Alpha Testing}{22}
+\contentsline {subsection}{\numberline {6.1.1}Function Testing}{22}
+\contentsline {subsection}{\numberline {6.1.2}System Testing}{22}
+\contentsline {subsubsection}{Performance}{22}
+\contentsline {chapter}{\numberline {7}Development \& Manufacture Costs}{24}
+\contentsline {section}{\numberline {7.1}Development Cost}{24}
+\contentsline {section}{\numberline {7.2}Manufacture Cost}{25}
+\contentsline {chapter}{\numberline {8}Risk Analysis}{26}
+\contentsline {chapter}{\numberline {9}Development Timeline}{28}
+\contentsline {chapter}{\numberline {10}Ethical Analysis}{30}
+\contentsline {chapter}{\numberline {11}Sustainability}{32}
+\contentsline {chapter}{\numberline {12}Conclusion}{36}
+\contentsline {chapter}{\numberline {13}Appendix}{37}
+\contentsline {section}{\numberline {13.1}Sample Testing Documents}{38}
+\contentsline {subsection}{\numberline {13.1.1}Can Amazon's assistant stay on top?}{38}
+\contentsline {subsubsection}{Original Text}{38}
+\contentsline {subsubsection}{Detected Text}{39}
+\contentsline {subsection}{\numberline {13.1.2}Dubai becomes first city to get its own Microsoft font}{39}
+\contentsline {subsubsection}{Original Text}{40}
+\contentsline {subsubsection}{Detected Text}{40}
+\contentsline {subsection}{\numberline {13.1.3}FCC website 'targeted by attack' after John Oliver comments}{41}
+\contentsline {subsubsection}{Original Text}{41}
+\contentsline {subsubsection}{Detected Text}{41}
+\contentsline {section}{\numberline {13.2}Code}{42}
+\contentsline {subsection}{\numberline {13.2.1}Raspberry Pi}{42}
+\contentsline {subsection}{\numberline {13.2.2}Smart Phone Application}{42}
+\contentsline {subsection}{\numberline {13.2.3}Server}{68}
+\contentsline {subsubsection}{API}{68}
+\contentsline {subsubsection}{File: autoapp.py}{68}
+\contentsline {subsubsection}{File: bootstrap.sh}{68}
+\contentsline {subsubsection}{File: Procfile}{69}
+\contentsline {subsubsection}{File: requirements.txt}{69}
+\contentsline {subsubsection}{File: start\_app.sh}{69}
+\contentsline {subsubsection}{File: prahvi/app.py}{69}
+\contentsline {subsubsection}{File: prahvi/commands.py}{71}
+\contentsline {subsubsection}{File: prahvi/compat.py}{73}
+\contentsline {subsubsection}{File: prahvi/errors.py}{73}
+\contentsline {subsubsection}{File: prahvi/extensions.py}{74}
+\contentsline {subsubsection}{File: prahvi/settings.py}{74}
+\contentsline {subsubsection}{File: prahvi/api/v1/\_\_init\_\_.py}{75}
+\contentsline {subsubsection}{File: prahvi/api/v1/api.py}{76}
+\contentsline {subsubsection}{File: prahvi/lib/\_\_init\_\_.py}{77}
+\contentsline {subsubsection}{Text Extraction}{79}
+\contentsline {subsubsection}{documentSimilarityScore.py}{91}
